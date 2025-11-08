@@ -465,6 +465,8 @@ img {
     border-radius: var(--border-radius-lg);
     overflow: hidden;
     box-shadow: var(--shadow-xl);
+    will-change: transform;
+    transition: transform 0.1s ease-out;
 }
 
 .about__photo {

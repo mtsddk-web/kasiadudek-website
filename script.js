@@ -917,6 +917,57 @@ window.addEventListener('offline', () => {
     showNotification('Brak połączenia z internetem', 'error');
 });
 
+// ===== Parallax Effect for About Section Photo =====
+function initParallax() {
+    const aboutImage = document.querySelector('.about__image-wrapper');
+
+    if (!aboutImage) return;
+
+    function updateParallax() {
+        const scrolled = window.pageYOffset;
+        const aboutSection = document.querySelector('#about');
+
+        if (!aboutSection) return;
+
+        const sectionTop = aboutSection.offsetTop;
+        const sectionHeight = aboutSection.offsetHeight;
+        const scrollPosition = scrolled - sectionTop;
+
+        // Only apply parallax when section is in viewport
+        if (scrollPosition > -window.innerHeight && scrollPosition < sectionHeight) {
+            // Calculate parallax offset (adjust speed with multiplier)
+            const parallaxSpeed = 0.15; // Lower = slower movement
+            const offset = scrollPosition * parallaxSpeed;
+
+            // Apply transform
+            aboutImage.style.transform = `translateY(${offset}px)`;
+        }
+    }
+
+    // Use requestAnimationFrame for smooth performance
+    let ticking = false;
+
+    window.addEventListener('scroll', () => {
+        if (!ticking) {
+            window.requestAnimationFrame(() => {
+                updateParallax();
+                ticking = false;
+            });
+            ticking = true;
+        }
+    });
+
+    // Initial call
+    updateParallax();
+}
+
+// Initialize parallax when DOM is ready
+if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initParallax);
+} else {
+    initParallax();
+}
+
 // ===== Export for testing (if needed) =====
 if (typeof module !== 'undefined' && module.exports) {
     module.exports = {
