@@ -931,13 +931,25 @@ function initParallax() {
 
         const sectionTop = aboutSection.offsetTop;
         const sectionHeight = aboutSection.offsetHeight;
-        const scrollPosition = scrolled - sectionTop;
+        const windowHeight = window.innerHeight;
+
+        // Calculate when section enters and exits viewport
+        const scrollStart = sectionTop - windowHeight;
+        const scrollEnd = sectionTop + sectionHeight;
+        const scrollRange = scrollEnd - scrollStart;
+
+        // Current scroll progress through the section (0 to 1)
+        const scrollProgress = Math.max(0, Math.min(1, (scrolled - scrollStart) / scrollRange));
 
         // Only apply parallax when section is in viewport
-        if (scrollPosition > -window.innerHeight && scrollPosition < sectionHeight) {
-            // Calculate parallax offset (adjust speed with multiplier)
-            const parallaxSpeed = 0.35; // Lower = slower movement
-            const offset = scrollPosition * parallaxSpeed;
+        if (scrolled > scrollStart && scrolled < scrollEnd) {
+            // Max offset limited to prevent image from going outside container
+            const maxOffset = 80; // Maximum pixels it can move (adjust as needed)
+
+            // Map progress from 0-1 to -maxOffset to +maxOffset
+            // When entering viewport (top): negative offset (image higher)
+            // When exiting viewport (bottom): positive offset (image lower)
+            const offset = (scrollProgress - 0.5) * maxOffset * 2;
 
             // Apply transform
             aboutImage.style.transform = `translateY(${offset}px)`;
