@@ -936,7 +936,7 @@ function initParallax() {
         // Only apply parallax when section is in viewport
         if (scrollPosition > -window.innerHeight && scrollPosition < sectionHeight) {
             // Calculate parallax offset (adjust speed with multiplier)
-            const parallaxSpeed = 0.15; // Lower = slower movement
+            const parallaxSpeed = 0.35; // Lower = slower movement
             const offset = scrollPosition * parallaxSpeed;
 
             // Apply transform
