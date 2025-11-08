@@ -372,6 +372,15 @@ img {
     display: inline-block;
 }
 
+.hero__subtitle {
+    font-size: var(--font-size-2xl);
+    font-weight: var(--font-weight-semibold);
+    color: var(--color-text);
+    line-height: 1.4;
+    margin-bottom: var(--spacing-lg);
+    margin-top: var(--spacing-sm);
+}
+
 .hero__description {
     font-size: var(--font-size-lg);
     color: var(--color-text-light);
@@ -1237,7 +1246,12 @@ img {
         --font-size-5xl: 2rem;
         --font-size-4xl: 1.75rem;
         --font-size-3xl: 1.5rem;
+        --font-size-2xl: 1.25rem;
         --spacing-3xl: 4rem;
+    }
+
+    .hero__subtitle {
+        font-size: var(--font-size-xl);
     }
 
     .nav__menu {
