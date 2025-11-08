@@ -385,11 +385,21 @@ img {
     flex-wrap: wrap;
 }
 
-.hero__image-placeholder {
+.hero__image-wrapper {
     width: 100%;
-    max-width: 400px;
+    max-width: 450px;
     margin: 0 auto;
     animation: float 6s ease-in-out infinite;
+}
+
+.hero__photo {
+    width: 100%;
+    height: auto;
+    border-radius: 50%;
+    object-fit: cover;
+    aspect-ratio: 1/1;
+    box-shadow: var(--shadow-xl);
+    border: 8px solid var(--color-accent);
 }
 
 @keyframes float {
@@ -456,9 +466,12 @@ img {
     box-shadow: var(--shadow-xl);
 }
 
-.about__image-placeholder {
+.about__photo {
     width: 100%;
+    height: auto;
+    object-fit: cover;
     aspect-ratio: 3/4;
+    display: block;
 }
 
 .about__text {
