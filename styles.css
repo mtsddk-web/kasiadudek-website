@@ -397,6 +397,7 @@ img {
     height: auto;
     border-radius: 50%;
     object-fit: cover;
+    object-position: center 30%;
     aspect-ratio: 1/1;
     box-shadow: var(--shadow-xl);
     border: 8px solid var(--color-accent);
