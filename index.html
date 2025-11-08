@@ -1,0 +1,718 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Profesjonalne doradztwo zawodowe - pomogę Ci odkryć swoją ścieżkę kariery, przygotować CV i znaleźć wymarzoną pracę">
+    <title>Katarzyna Dudek - Doradca Zawodowy</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Caveat:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header" id="header">
+        <nav class="nav container">
+            <a href="#" class="nav__logo">
+                <span class="logo-text">Katarzyna Dudek</span>
+                <span class="logo-subtitle">Doradca Zawodowy</span>
+            </a>
+
+            <div class="nav__menu" id="nav-menu">
+                <ul class="nav__list">
+                    <li class="nav__item"><a href="#offer" class="nav__link active-link">Oferta</a></li>
+                    <li class="nav__item"><a href="#blog" class="nav__link">Blog</a></li>
+                    <li class="nav__item"><a href="#shop" class="nav__link">Sklep</a></li>
+                    <li class="nav__item"><a href="#about" class="nav__link">O mnie</a></li>
+                    <li class="nav__item"><a href="#contact" class="nav__link nav__cta">Kontakt</a></li>
+                </ul>
+                <div class="nav__close" id="nav-close">
+                    <i class="nav__close-icon">✕</i>
+                </div>
+            </div>
+
+            <div class="nav__toggle" id="nav-toggle">
+                <span class="nav__toggle-icon"></span>
+                <span class="nav__toggle-icon"></span>
+                <span class="nav__toggle-icon"></span>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero section" id="home">
+        <div class="hero__container container">
+            <div class="hero__content">
+                <span class="hero__greeting">Witaj!</span>
+                <h1 class="hero__title">
+                    Pomogę Ci odkryć swoją <span class="hero__highlight">wymarzoną ścieżkę kariery</span>
+                </h1>
+                <p class="hero__description">
+                    Jestem doradcą zawodowym, który pomoże Ci zrozumieć Twoje mocne strony,
+                    znaleźć pracę, która sprawi Ci radość i zaplanować karierę dopasowaną do Twoich celów.
+                </p>
+                <div class="hero__buttons">
+                    <a href="#contact" class="button button--primary">Umów konsultację</a>
+                    <a href="#offer" class="button button--secondary">Zobacz ofertę</a>
+                </div>
+            </div>
+            <div class="hero__image">
+                <div class="hero__image-placeholder">
+                    <svg viewBox="0 0 400 400" xmlns="http://www.w3.org/2000/svg">
+                        <defs>
+                            <linearGradient id="gradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                                <stop offset="0%" style="stop-color:#04685A;stop-opacity:1" />
+                                <stop offset="100%" style="stop-color:#3a6244;stop-opacity:1" />
+                            </linearGradient>
+                        </defs>
+                        <circle cx="200" cy="200" r="180" fill="url(#gradient)" opacity="0.1"/>
+                        <circle cx="200" cy="200" r="140" fill="url(#gradient)" opacity="0.2"/>
+                        <text x="200" y="210" text-anchor="middle" fill="#04685A" font-size="120" font-family="Inter" font-weight="700">K</text>
+                    </svg>
+                </div>
+            </div>
+        </div>
+
+        <div class="hero__scroll">
+            <a href="#about" class="hero__scroll-button">
+                <span>Przewiń w dół</span>
+                <svg class="hero__scroll-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M12 5v14M19 12l-7 7-7-7"/>
+                </svg>
+            </a>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="about section" id="about">
+        <div class="container">
+            <div class="section__header">
+                <span class="section__subtitle">Kim jestem</span>
+                <h2 class="section__title">O mnie</h2>
+            </div>
+
+            <div class="about__container">
+                <div class="about__image">
+                    <div class="about__image-wrapper">
+                        <div class="about__image-placeholder">
+                            <svg viewBox="0 0 300 400" xmlns="http://www.w3.org/2000/svg">
+                                <rect width="300" height="400" fill="#f1f1f7"/>
+                                <circle cx="150" cy="150" r="60" fill="#04685A" opacity="0.3"/>
+                                <text x="150" y="240" text-anchor="middle" fill="#04685A" font-size="16" font-family="Inter">Twoje zdjęcie</text>
+                            </svg>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="about__content">
+                    <p class="about__text">
+                        Jestem doradcą zawodowym z pasją do pomagania ludziom w odkrywaniu ich prawdziwego potencjału.
+                        Wierzę, że każdy z nas ma unikalne talenty i umiejętności, które mogą przełożyć się na spełniającą karierę.
+                    </p>
+                    <p class="about__text">
+                        Przez lata pracy z setkami osób nauczyłam się, że kluczem do sukcesu zawodowego jest nie tylko
+                        znalezienie odpowiedniej pracy, ale przede wszystkim zrozumienie siebie - swoich wartości,
+                        mocnych stron i tego, co naprawdę przynosi nam radość.
+                    </p>
+                    <p class="about__text">
+                        Moja misja to wspieranie Cię na każdym etapie Twojej drogi zawodowej - od odkrycia predyspozycji,
+                        przez przygotowanie profesjonalnych dokumentów aplikacyjnych, aż po pewne przejście przez proces rekrutacji.
+                    </p>
+
+                    <div class="about__features">
+                        <div class="feature">
+                            <div class="feature__icon">✓</div>
+                            <div class="feature__content">
+                                <h3 class="feature__title">Indywidualne podejście</h3>
+                                <p class="feature__text">Każdy klient jest wyjątkowy i wymaga spersonalizowanego wsparcia</p>
+                            </div>
+                        </div>
+                        <div class="feature">
+                            <div class="feature__icon">✓</div>
+                            <div class="feature__content">
+                                <h3 class="feature__title">Praktyczne narzędzia</h3>
+                                <p class="feature__text">Używam sprawdzonych metod i testów psychologicznych</p>
+                            </div>
+                        </div>
+                        <div class="feature">
+                            <div class="feature__icon">✓</div>
+                            <div class="feature__content">
+                                <h3 class="feature__title">Długoterminowe efekty</h3>
+                                <p class="feature__text">Pomagam planować karierę z myślą o przyszłości</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Offer Section -->
+    <section class="offer section section--dark" id="offer">
+        <div class="container">
+            <div class="section__header">
+                <span class="section__subtitle">Co oferuję</span>
+                <h2 class="section__title">Moja oferta</h2>
+                <p class="section__description">
+                    Kompleksowe wsparcie w rozwoju kariery dostosowane do Twoich potrzeb
+                </p>
+            </div>
+
+            <div class="offer__grid">
+                <!-- Offer Card 1 -->
+                <article class="offer__card">
+                    <div class="offer__card-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+                            <circle cx="9" cy="7" r="4"></circle>
+                            <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
+                            <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+                        </svg>
+                    </div>
+                    <h3 class="offer__card-title">Konsultacja 1-1</h3>
+                    <p class="offer__card-description">
+                        Indywidualne spotkanie online lub stacjonarnie, w trakcie którego omówimy Twoje
+                        aktualne wyzwania zawodowe i pomogę Ci zrozumieć, w którym kierunku chcesz podążać.
+                    </p>
+                    <ul class="offer__card-list">
+                        <li>Analiza aktualnej sytuacji zawodowej</li>
+                        <li>Odkrycie mocnych stron i talentów</li>
+                        <li>Plan działania dopasowany do Twoich celów</li>
+                        <li>Wsparcie w podejmowaniu decyzji</li>
+                    </ul>
+                    <div class="offer__card-ideal">
+                        <strong>Idealne dla Ciebie, jeśli:</strong>
+                        <ul>
+                            <li>Czujesz wypalenie zawodowe</li>
+                            <li>Wybierasz kierunek studiów</li>
+                            <li>Chcesz się przebranżowić</li>
+                            <li>Wracasz na rynek pracy</li>
+                        </ul>
+                    </div>
+                    <a href="#contact" class="button button--primary button--full">Umów spotkanie</a>
+                </article>
+
+                <!-- Offer Card 2 -->
+                <article class="offer__card">
+                    <div class="offer__card-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                            <polyline points="14 2 14 8 20 8"></polyline>
+                            <line x1="16" y1="13" x2="8" y2="13"></line>
+                            <line x1="16" y1="17" x2="8" y2="17"></line>
+                            <polyline points="10 9 9 9 8 9"></polyline>
+                        </svg>
+                    </div>
+                    <h3 class="offer__card-title">Budowanie CV</h3>
+                    <p class="offer__card-description">
+                        Twoje CV to Twoja wizytówka – pierwszy krok do wymarzonej pracy. Stworzę dla Ciebie
+                        profesjonalny życiorys, który wyróżni Cię na rynku pracy.
+                    </p>
+                    <ul class="offer__card-list">
+                        <li>Indywidualne podejście dopasowane do branży</li>
+                        <li>Profesjonalny, nowoczesny design</li>
+                        <li>Optymalizacja pod systemy ATS</li>
+                        <li>Podkreślenie umiejętności i osiągnięć</li>
+                    </ul>
+                    <div class="offer__card-benefit">
+                        Otrzymasz CV, które przyciąga uwagę rekruterów i zwiększa Twoje szanse na zaproszenie do rozmowy.
+                    </div>
+                    <a href="#contact" class="button button--primary button--full">Zamów CV</a>
+                </article>
+
+                <!-- Offer Card 3 -->
+                <article class="offer__card">
+                    <div class="offer__card-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
+                        </svg>
+                    </div>
+                    <h3 class="offer__card-title">Przygotowanie do rozmowy</h3>
+                    <p class="offer__card-description">
+                        Rozmowa kwalifikacyjna to kluczowy moment. Przygotuj się profesjonalnie i zyskaj
+                        pewność siebie dzięki mojemu wsparciu.
+                    </p>
+                    <ul class="offer__card-list">
+                        <li>Symulacje rozmów kwalifikacyjnych</li>
+                        <li>Trening odpowiedzi na trudne pytania</li>
+                        <li>Mowa ciała i autoprezentacja</li>
+                        <li>Wskazówki praktyczne (dress code, kultura)</li>
+                    </ul>
+                    <div class="offer__card-benefit">
+                        Zyskasz przewagę nad innymi kandydatami i pewność, że zaprezentowałeś się w najlepszy sposób.
+                    </div>
+                    <a href="#contact" class="button button--primary button--full">Przygotuj się</a>
+                </article>
+
+                <!-- Offer Card 4 -->
+                <article class="offer__card">
+                    <div class="offer__card-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M9 11l3 3L22 4"></path>
+                            <path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"></path>
+                        </svg>
+                    </div>
+                    <h3 class="offer__card-title">Testy predyspozycji</h3>
+                    <p class="offer__card-description">
+                        Odkryj swoje mocne strony i ścieżkę kariery dopasowaną do Twoich umiejętności
+                        i zainteresowań dzięki profesjonalnym testom.
+                    </p>
+                    <ul class="offer__card-list">
+                        <li>Profesjonalna diagnoza predyspozycji</li>
+                        <li>Szczegółowy raport z analizą wyników</li>
+                        <li>Rekomendacje zawodowe</li>
+                        <li>Plan rozwoju kariery</li>
+                    </ul>
+                    <div class="offer__card-benefit">
+                        Otrzymasz kompletny obraz swoich talentów i konkretny plan działania zgodny z Twoimi predyspozycjami.
+                    </div>
+                    <a href="#contact" class="button button--primary button--full">Wykonaj test</a>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <!-- Blog Section -->
+    <section class="blog section" id="blog">
+        <div class="container">
+            <div class="section__header">
+                <span class="section__subtitle">Wiedza i inspiracje</span>
+                <h2 class="section__title">Blog</h2>
+                <p class="section__description">
+                    Praktyczne porady i artykuły o rozwoju kariery
+                </p>
+            </div>
+
+            <div class="blog__grid">
+                <!-- Blog Post 1 -->
+                <article class="blog__card">
+                    <div class="blog__card-image">
+                        <div class="blog__card-category">Poradnik</div>
+                    </div>
+                    <div class="blog__card-content">
+                        <h3 class="blog__card-title">Doradztwo zawodowe – klucz do świadomej drogi zawodowej</h3>
+                        <p class="blog__card-excerpt">
+                            Świat pracy dynamicznie się zmienia, co stawia młodzież (i nie tylko) przed coraz
+                            większymi wyzwaniami. Doradztwo zawodowe pozwala przygotować się do tych wyzwań...
+                        </p>
+                        <div class="blog__card-meta">
+                            <span class="blog__card-date">Najnowszy artykuł</span>
+                            <a href="#" class="blog__card-link">Czytaj więcej →</a>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Blog Post 2 -->
+                <article class="blog__card">
+                    <div class="blog__card-image">
+                        <div class="blog__card-category">Przyszłość</div>
+                    </div>
+                    <div class="blog__card-content">
+                        <h3 class="blog__card-title">Kompetencje przyszłości - 10 ciekawych zawodów</h3>
+                        <p class="blog__card-excerpt">
+                            Dynamicznie zmieniający się rynek pracy wymaga od nas dostosowania do nowych technologii
+                            i wyzwań, które przynosi przyszłość. Poznaj zawody jutra...
+                        </p>
+                        <div class="blog__card-meta">
+                            <span class="blog__card-date">Trendy rynku</span>
+                            <a href="#" class="blog__card-link">Czytaj więcej →</a>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Blog Post 3 -->
+                <article class="blog__card">
+                    <div class="blog__card-image">
+                        <div class="blog__card-category">Motywacja</div>
+                    </div>
+                    <div class="blog__card-content">
+                        <h3 class="blog__card-title">4 powody, dla których warto skorzystać z doradcy zawodowego</h3>
+                        <p class="blog__card-excerpt">
+                            Wybór ścieżki kariery to jedna z najważniejszych decyzji w życiu.
+                            Dowiedz się, jak doradca może Ci pomóc odkryć Twoje predyspozycje...
+                        </p>
+                        <div class="blog__card-meta">
+                            <span class="blog__card-date">Poradnik</span>
+                            <a href="#" class="blog__card-link">Czytaj więcej →</a>
+                        </div>
+                    </div>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <!-- Shop Section -->
+    <section class="shop section" id="shop">
+        <div class="container">
+            <div class="section__header">
+                <span class="section__subtitle">Kup teraz</span>
+                <h2 class="section__title">Sklep</h2>
+                <p class="section__description">
+                    Wybierz usługę i kup online. Płatność bezpieczna przez Przelewy24.
+                </p>
+            </div>
+
+            <div class="shop__grid">
+                <!-- Shop Item 1 - Konsultacje -->
+                <article class="shop__card">
+                    <div class="shop__card-image">
+                        <!-- Placeholder na grafikę - Kasia doda swoje zdjęcie -->
+                        <img src="https://via.placeholder.com/400x300/a89078/ffffff?text=Konsultacje+1-1" alt="Konsultacje 1-1" loading="lazy">
+                        <div class="shop__card-badge">Najpopularniejsze</div>
+                    </div>
+                    <div class="shop__card-content">
+                        <h3 class="shop__card-title">Konsultacja 1-1</h3>
+                        <p class="shop__card-description">
+                            Indywidualne spotkanie online lub stacjonarnie. Pomogę Ci odkryć swoją ścieżkę kariery i zaplanować kolejne kroki.
+                        </p>
+                        <ul class="shop__card-features">
+                            <li>60 minut konsultacji</li>
+                            <li>Analiza sytuacji zawodowej</li>
+                            <li>Plan działania</li>
+                            <li>Materiały po spotkaniu</li>
+                        </ul>
+                        <div class="shop__card-price">
+                            <span class="shop__card-price-amount">180 zł</span>
+                            <span class="shop__card-price-label">za konsultację</span>
+                        </div>
+                        <button class="button button--primary button--full shop__buy-button" data-product="konsultacja" data-price="180">
+                            Kup teraz
+                        </button>
+                    </div>
+                </article>
+
+                <!-- Shop Item 2 - Budowanie CV -->
+                <article class="shop__card">
+                    <div class="shop__card-image">
+                        <img src="https://via.placeholder.com/400x300/a89078/ffffff?text=Budowanie+CV" alt="Budowanie CV" loading="lazy">
+                    </div>
+                    <div class="shop__card-content">
+                        <h3 class="shop__card-title">Budowanie CV</h3>
+                        <p class="shop__card-description">
+                            Profesjonalne CV, które wyróżni Cię na rynku pracy. Nowoczesny design i optymalizacja pod ATS.
+                        </p>
+                        <ul class="shop__card-features">
+                            <li>Profesjonalny design</li>
+                            <li>Optymalizacja ATS</li>
+                            <li>2 wersje kolorystyczne</li>
+                            <li>Gotowe w 3-5 dni</li>
+                        </ul>
+                        <div class="shop__card-price">
+                            <span class="shop__card-price-amount">140 zł</span>
+                            <span class="shop__card-price-label">za CV</span>
+                        </div>
+                        <button class="button button--primary button--full shop__buy-button" data-product="cv" data-price="140">
+                            Kup teraz
+                        </button>
+                    </div>
+                </article>
+
+                <!-- Shop Item 3 - Przygotowanie do rozmowy -->
+                <article class="shop__card">
+                    <div class="shop__card-image">
+                        <img src="https://via.placeholder.com/400x300/a89078/ffffff?text=Rozmowa+kwalifikacyjna" alt="Przygotowanie do rozmowy" loading="lazy">
+                    </div>
+                    <div class="shop__card-content">
+                        <h3 class="shop__card-title">Przygotowanie do rozmowy</h3>
+                        <p class="shop__card-description">
+                            Symulacja rozmowy kwalifikacyjnej, trening odpowiedzi i wskazówki, które dadzą Ci przewagę.
+                        </p>
+                        <ul class="shop__card-features">
+                            <li>90 minut treningu</li>
+                            <li>Symulacja rozmowy</li>
+                            <li>Feedback i wskazówki</li>
+                            <li>Lista pytań do przygotowania</li>
+                        </ul>
+                        <div class="shop__card-price">
+                            <span class="shop__card-price-amount">200 zł</span>
+                            <span class="shop__card-price-label">za sesję</span>
+                        </div>
+                        <button class="button button--primary button--full shop__buy-button" data-product="rozmowa" data-price="200">
+                            Kup teraz
+                        </button>
+                    </div>
+                </article>
+
+                <!-- Shop Item 4 - Testy predyspozycji -->
+                <article class="shop__card">
+                    <div class="shop__card-image">
+                        <img src="https://via.placeholder.com/400x300/a89078/ffffff?text=Testy+predyspozycji" alt="Testy predyspozycji" loading="lazy">
+                        <div class="shop__card-badge">Kompleksowo</div>
+                    </div>
+                    <div class="shop__card-content">
+                        <h3 class="shop__card-title">Testy predyspozycji</h3>
+                        <p class="shop__card-description">
+                            Profesjonalne testy psychologiczne i szczegółowy raport z rekomendacjami zawodowymi.
+                        </p>
+                        <ul class="shop__card-features">
+                            <li>Bateria testów psychologicznych</li>
+                            <li>Szczegółowy raport (15+ stron)</li>
+                            <li>Konsultacja online (60 min)</li>
+                            <li>Plan rozwoju kariery</li>
+                        </ul>
+                        <div class="shop__card-price">
+                            <span class="shop__card-price-amount">250 zł</span>
+                            <span class="shop__card-price-label">pakiet</span>
+                        </div>
+                        <button class="button button--primary button--full shop__buy-button" data-product="testy" data-price="250">
+                            Kup teraz
+                        </button>
+                    </div>
+                </article>
+            </div>
+
+            <!-- Payment Info -->
+            <div class="shop__payment-info">
+                <p class="shop__payment-text">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <rect x="1" y="4" width="22" height="16" rx="2" ry="2"></rect>
+                        <line x1="1" y1="10" x2="23" y2="10"></line>
+                    </svg>
+                    Bezpieczne płatności przez Przelewy24 - akceptujemy wszystkie popularne metody płatności: BLIK, karty, przelewy bankowe
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Ebook Section -->
+    <section class="ebook section section--accent">
+        <div class="container">
+            <div class="ebook__container">
+                <div class="ebook__content">
+                    <span class="ebook__label">Bezpłatny przewodnik</span>
+                    <h2 class="ebook__title">Pobierz darmowy e-book o planowaniu kariery</h2>
+                    <p class="ebook__description">
+                        Praktyczny przewodnik, który pomoże Ci zrozumieć swoje mocne strony,
+                        wybrać odpowiedni kierunek rozwoju i zaplanować kolejne kroki w karierze.
+                    </p>
+                    <ul class="ebook__benefits">
+                        <li>
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <polyline points="20 6 9 17 4 12"></polyline>
+                            </svg>
+                            <span>Ćwiczenia do samodzielnej pracy</span>
+                        </li>
+                        <li>
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <polyline points="20 6 9 17 4 12"></polyline>
+                            </svg>
+                            <span>Sprawdzone metody planowania kariery</span>
+                        </li>
+                        <li>
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <polyline points="20 6 9 17 4 12"></polyline>
+                            </svg>
+                            <span>Szablony i checklisty do wykorzystania</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="ebook__form">
+                    <form class="form" id="ebook-form">
+                        <h3 class="form__title">Zapisz się i pobierz e-book</h3>
+                        <div class="form__group">
+                            <input type="text" class="form__input" placeholder="Imię" required>
+                        </div>
+                        <div class="form__group">
+                            <input type="email" class="form__input" placeholder="Adres e-mail" required>
+                        </div>
+                        <div class="form__checkbox">
+                            <input type="checkbox" id="consent" required>
+                            <label for="consent">Akceptuję politykę prywatności i wyrażam zgodę na przetwarzanie danych</label>
+                        </div>
+                        <button type="submit" class="button button--primary button--full">
+                            Pobierz darmowy e-book
+                        </button>
+                        <p class="form__note">Nie spamujemy! Otrzymasz tylko wartościowe treści.</p>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact section" id="contact">
+        <div class="container">
+            <div class="section__header">
+                <span class="section__subtitle">Skontaktuj się</span>
+                <h2 class="section__title">Porozmawiajmy o Twojej karierze</h2>
+                <p class="section__description">
+                    Jestem tu, aby Ci pomóc. Napisz do mnie lub umów się na bezpłatną konsultację
+                </p>
+            </div>
+
+            <div class="contact__container">
+                <div class="contact__info">
+                    <div class="contact__info-item">
+                        <div class="contact__info-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+                                <polyline points="22,6 12,13 2,6"></polyline>
+                            </svg>
+                        </div>
+                        <div class="contact__info-content">
+                            <h3>Email</h3>
+                            <a href="mailto:kontakt@kasiadudek.pl">kontakt@kasiadudek.pl</a>
+                        </div>
+                    </div>
+
+                    <div class="contact__info-item">
+                        <div class="contact__info-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
+                            </svg>
+                        </div>
+                        <div class="contact__info-content">
+                            <h3>Telefon</h3>
+                            <a href="tel:+48733111874">+48 733 111 874</a>
+                        </div>
+                    </div>
+
+                    <div class="contact__info-item">
+                        <div class="contact__info-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <circle cx="12" cy="12" r="10"></circle>
+                                <polyline points="12 6 12 12 16 14"></polyline>
+                            </svg>
+                        </div>
+                        <div class="contact__info-content">
+                            <h3>Godziny dostępności</h3>
+                            <p>Pon-Pt: 9:00 - 18:00</p>
+                        </div>
+                    </div>
+
+                    <div class="contact__social">
+                        <h3>Znajdź mnie również na:</h3>
+                        <div class="social__links">
+                            <a href="#" class="social__link" aria-label="LinkedIn">
+                                <svg viewBox="0 0 24 24" fill="currentColor">
+                                    <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+                                </svg>
+                            </a>
+                            <a href="#" class="social__link" aria-label="Facebook">
+                                <svg viewBox="0 0 24 24" fill="currentColor">
+                                    <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
+                                </svg>
+                            </a>
+                            <a href="#" class="social__link" aria-label="Instagram">
+                                <svg viewBox="0 0 24 24" fill="currentColor">
+                                    <path d="M12 0C8.74 0 8.333.015 7.053.072 5.775.132 4.905.333 4.14.63c-.789.306-1.459.717-2.126 1.384S.935 3.35.63 4.14C.333 4.905.131 5.775.072 7.053.012 8.333 0 8.74 0 12s.015 3.667.072 4.947c.06 1.277.261 2.148.558 2.913.306.788.717 1.459 1.384 2.126.667.666 1.336 1.079 2.126 1.384.766.296 1.636.499 2.913.558C8.333 23.988 8.74 24 12 24s3.667-.015 4.947-.072c1.277-.06 2.148-.262 2.913-.558.788-.306 1.459-.718 2.126-1.384.666-.667 1.079-1.335 1.384-2.126.296-.765.499-1.636.558-2.913.06-1.28.072-1.687.072-4.947s-.015-3.667-.072-4.947c-.06-1.277-.262-2.149-.558-2.913-.306-.789-.718-1.459-1.384-2.126C21.319 1.347 20.651.935 19.86.63c-.765-.297-1.636-.499-2.913-.558C15.667.012 15.26 0 12 0zm0 2.16c3.203 0 3.585.016 4.85.071 1.17.055 1.805.249 2.227.415.562.217.96.477 1.382.896.419.42.679.819.896 1.381.164.422.36 1.057.413 2.227.057 1.266.07 1.646.07 4.85s-.015 3.585-.074 4.85c-.061 1.17-.256 1.805-.421 2.227-.224.562-.479.96-.899 1.382-.419.419-.824.679-1.38.896-.42.164-1.065.36-2.235.413-1.274.057-1.649.07-4.859.07-3.211 0-3.586-.015-4.859-.074-1.171-.061-1.816-.256-2.236-.421-.569-.224-.96-.479-1.379-.899-.421-.419-.69-.824-.9-1.38-.165-.42-.359-1.065-.42-2.235-.045-1.26-.061-1.649-.061-4.844 0-3.196.016-3.586.061-4.861.061-1.17.255-1.814.42-2.234.21-.57.479-.96.9-1.381.419-.419.81-.689 1.379-.898.42-.166 1.051-.361 2.221-.421 1.275-.045 1.65-.06 4.859-.06l.045.03zm0 3.678c-3.405 0-6.162 2.76-6.162 6.162 0 3.405 2.76 6.162 6.162 6.162 3.405 0 6.162-2.76 6.162-6.162 0-3.405-2.76-6.162-6.162-6.162zM12 16c-2.21 0-4-1.79-4-4s1.79-4 4-4 4 1.79 4 4-1.79 4-4 4zm7.846-10.405c0 .795-.646 1.44-1.44 1.44-.795 0-1.44-.646-1.44-1.44 0-.794.646-1.439 1.44-1.439.793-.001 1.44.645 1.44 1.439z"/>
+                                </svg>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <form class="contact__form" id="contact-form">
+                    <div class="form__group">
+                        <label for="name" class="form__label">Imię i nazwisko</label>
+                        <input type="text" id="name" class="form__input" required>
+                    </div>
+
+                    <div class="form__group">
+                        <label for="email" class="form__label">Adres e-mail</label>
+                        <input type="email" id="email" class="form__input" required>
+                    </div>
+
+                    <div class="form__group">
+                        <label for="phone" class="form__label">Telefon (opcjonalnie)</label>
+                        <input type="tel" id="phone" class="form__input">
+                    </div>
+
+                    <div class="form__group">
+                        <label for="service" class="form__label">Interesująca usługa</label>
+                        <select id="service" class="form__input">
+                            <option value="">Wybierz usługę</option>
+                            <option value="konsultacja">Konsultacja 1-1</option>
+                            <option value="cv">Budowanie CV</option>
+                            <option value="rozmowa">Przygotowanie do rozmowy</option>
+                            <option value="testy">Testy predyspozycji</option>
+                            <option value="inne">Inne</option>
+                        </select>
+                    </div>
+
+                    <div class="form__group">
+                        <label for="message" class="form__label">Wiadomość</label>
+                        <textarea id="message" class="form__input form__textarea" rows="5" required></textarea>
+                    </div>
+
+                    <div class="form__checkbox">
+                        <input type="checkbox" id="contact-consent" required>
+                        <label for="contact-consent">Wyrażam zgodę na przetwarzanie moich danych osobowych</label>
+                    </div>
+
+                    <button type="submit" class="button button--primary button--full">
+                        Wyślij wiadomość
+                    </button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer__container">
+                <div class="footer__content">
+                    <div class="footer__brand">
+                        <h3 class="footer__logo">Katarzyna Dudek</h3>
+                        <p class="footer__description">
+                            Profesjonalne doradztwo zawodowe, które pomaga odkryć Twoją prawdziwą ścieżkę kariery.
+                        </p>
+                    </div>
+
+                    <div class="footer__links">
+                        <h4 class="footer__title">Menu</h4>
+                        <ul class="footer__list">
+                            <li><a href="#home">Start</a></li>
+                            <li><a href="#about">O mnie</a></li>
+                            <li><a href="#offer">Oferta</a></li>
+                            <li><a href="#blog">Blog</a></li>
+                            <li><a href="#contact">Kontakt</a></li>
+                        </ul>
+                    </div>
+
+                    <div class="footer__links">
+                        <h4 class="footer__title">Usługi</h4>
+                        <ul class="footer__list">
+                            <li><a href="#offer">Konsultacje</a></li>
+                            <li><a href="#offer">Tworzenie CV</a></li>
+                            <li><a href="#offer">Przygotowanie do rozmów</a></li>
+                            <li><a href="#offer">Testy predyspozycji</a></li>
+                        </ul>
+                    </div>
+
+                    <div class="footer__links">
+                        <h4 class="footer__title">Kontakt</h4>
+                        <ul class="footer__list">
+                            <li><a href="mailto:kontakt@kasiadudek.pl">kontakt@kasiadudek.pl</a></li>
+                            <li><a href="tel:+48123456789">+48 123 456 789</a></li>
+                            <li>Pon-Pt: 9:00 - 18:00</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="footer__bottom">
+                    <p class="footer__copy">
+                        &copy; 2024 Katarzyna Dudek - Doradca Zawodowy. Wszystkie prawa zastrzeżone.
+                    </p>
+                    <div class="footer__legal">
+                        <a href="#">Polityka prywatności</a>
+                        <a href="#">Regulamin</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scroll to Top Button -->
+    <button class="scroll-top" id="scroll-top" aria-label="Przewiń do góry">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M12 19V5M5 12l7-7 7 7"/>
+        </svg>
+    </button>
+
+    <script src="script.js"></script>
+</body>
+</html>

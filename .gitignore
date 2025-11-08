@@ -1,0 +1,28 @@
+# Pliki z hasłami i danymi wrażliwymi
+KONTA-EMAIL.md
+
+# Screenshoty z danymi
+email-config-*.png
+
+# Pliki tymczasowe
+.DS_Store
+*.swp
+*.swo
+*~
+.idea/
+.vscode/
+
+# Zdjęcia lokalne (przed dodaniem do projektu)
+# zdjecia/*.jpg
+# zdjecia/*.png
+
+# Node modules (gdyby były potrzebne w przyszłości)
+node_modules/
+package-lock.json
+
+# Build files
+dist/
+build/
+
+# Vercel
+.vercel
