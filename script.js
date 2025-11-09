@@ -1152,34 +1152,90 @@ function initWidgets() {
     const chatSend = document.getElementById('chatbot-send');
     const quickReplies = document.querySelectorAll('.chatbot-quick-reply');
 
-    // Chatbot knowledge base
+    // Chatbot knowledge base (expanded)
     const chatbotKnowledge = {
         cennik: {
             response: "Oto mój cennik:\n\n💼 Konsultacja 1-1: 180 zł\n📄 Budowanie CV: 140 zł\n🎤 Przygotowanie do rozmowy: 200 zł\n📊 Testy predyspozycji: 250 zł\n\nMożesz je zamówić bezpośrednio przez stronę w sekcji Cennik! 😊",
-            keywords: ['cennik', 'cena', 'ceny', 'koszt', 'ile', 'płatność', 'zapłać']
+            keywords: ['cennik', 'cena', 'ceny', 'koszt', 'ile', 'płatność', 'zapłać', 'ile kosztuje']
         },
         konsultacja: {
             response: "Konsultacja 1-1 to indywidualne spotkanie (60 minut) online lub stacjonarnie, podczas którego:\n\n✓ Analizujemy Twoją sytuację zawodową\n✓ Odkrywamy mocne strony i talenty\n✓ Tworzymy plan działania\n✓ Dostajesz materiały po spotkaniu\n\nMożesz umówić termin przez formularz kontaktowy! 📅",
-            keywords: ['konsultacja', 'spotkanie', '1-1', 'rozmowa', 'sesja', 'coaching']
+            keywords: ['konsultacja', 'spotkanie', '1-1', 'rozmowa', 'sesja', 'coaching', 'doradztwo']
         },
         online: {
             response: "Tak! 💻 Wszystkie usługi oferuję zarówno online (Zoom, Google Meet), jak i stacjonarnie.\n\nSpotkania online są równie efektywne i wygodne, szczególnie dla osób z innych miast. Ty wybierasz formę, która Ci odpowiada! 😊",
-            keywords: ['online', 'stacjonarnie', 'gdzie', 'zdalne', 'zoom', 'meet', 'video']
+            keywords: ['online', 'stacjonarnie', 'gdzie', 'zdalne', 'zoom', 'meet', 'video', 'microsoft teams']
         },
         kontakt: {
             response: "Skontaktuj się z Kasią:\n\n📧 Email: kontakt@kasiadudek.pl\n📞 Telefon: +48 733 111 874\n⏰ Pon-Pt: 9:00 - 18:00\n\nMożesz też wypełnić formularz kontaktowy na stronie lub skorzystać z przycisku 'Oddzwonię do Ciebie' 👈",
-            keywords: ['kontakt', 'telefon', 'email', 'napisać', 'zadzwonić', 'umówić']
+            keywords: ['kontakt', 'telefon', 'email', 'napisać', 'zadzwonić', 'umówić', 'skontaktować']
         },
         cv: {
             response: "Profesjonalne CV to Twoja wizytówka! 📄\n\nOtrzymasz:\n✓ Nowoczesny design dopasowany do branży\n✓ Optymalizację pod systemy ATS\n✓ 2 wersje kolorystyczne\n✓ 2 korekty w cenie\n\nCzas realizacji: 3-5 dni. Cena: 140 zł",
-            keywords: ['cv', 'życiorys', 'resume', 'dokument', 'aplikacja']
+            keywords: ['cv', 'życiorys', 'resume', 'dokument', 'aplikacja', 'curriculum vitae']
         },
         czas: {
             response: "Typowy czas współpracy:\n\n📅 Konsultacje: 1-2 spotkania (2-3 tygodnie)\n📄 CV: 3-5 dni roboczych\n🎤 Przygotowanie do rozmowy: 1-2 sesje\n📊 Testy: wyniki w 7 dni\n\nŁącznie: 4-8 tygodni od startu do pierwszych rozmów rekrutacyjnych! ⏱️",
-            keywords: ['ile trwa', 'czas', 'kiedy', 'długo', 'szybko', 'termin']
+            keywords: ['ile trwa', 'czas', 'kiedy', 'długo', 'szybko', 'termin', 'jak długo']
+        },
+        zagranica: {
+            response: "Oczywiście! 🌍 Pracuję z klientami z całego świata.\n\n✓ Konsultacje online (Zoom, Google Meet)\n✓ CV w języku polskim i angielskim\n✓ Przygotowanie do rekrutacji międzynarodowych\n✓ Wsparcie w relokacji i pracy za granicą\n\nJeśli wolisz spotkanie stacjonarne, zapraszam do Mikołowa! 😊",
+            keywords: ['zagranica', 'za granicą', 'międzynarodowy', 'europa', 'emigracja', 'praca za granicą', 'inny kraj']
+        },
+        branza: {
+            response: "Zajmuję się **doradz twem zawodowym** - pomagam ludziom w rozwoju kariery! 💼\n\n✓ Zmiana pracy lub branży\n✓ Rozwój zawodowy\n✓ Przygotowanie do rekrutacji\n✓ Testy predyspozycji\n✓ Budowanie CV i LinkedIn\n\nTo NIE jest serwis samochodowy, biuro rachunkowe czy agencja pracy. To profesjonalne wsparcie w Twojej karierze! 😊",
+            keywords: ['co to', 'czym się zajmuje', 'jaka branża', 'serwis', 'warsztat', 'naprawa', 'auto', 'samochód', 'księgowość']
+        },
+        lokalizacja: {
+            response: "Spotkania stacjonarne odbywają się w **Mikołowie** (woj. śląskie). 📍\n\nJesteśmy blisko:\n✓ Katowice - 15 min\n✓ Tychy - 10 min\n✓ Rybnik - 30 min\n\nJeśli mieszkasz dalej, polecam spotkania online - są równie efektywne! 💻",
+            keywords: ['gdzie', 'lokalizacja', 'adres', 'mikołów', 'miasto', 'katowice', 'śląsk', 'biuro']
+        },
+        wiek: {
+            response: "Pracuję z osobami w każdym wieku! 👥\n\n✓ Studenci i absolwenci (pierwsza praca)\n✓ Mid-career (zmiana pracy, rozwój)\n✓ Senior (awans, kierownictwo)\n✓ 40+/50+ (zmiana branży, powrót po przerwie)\n\nWiek to nie przeszkoda - liczą się cele i motywacja! 💪",
+            keywords: ['wiek', 'ile lat', 'dla kogo', 'student', 'senior', 'młody', 'starszy', '40+', '50+']
+        },
+        gwarancja: {
+            response: "Nie daję gwarancji znalezienia pracy - to byłoby nieuczciwe. 🎯\n\nALE gwarantuję:\n✓ Profesjonalne narzędzia (CV, przygotowanie)\n✓ Plan działania dopasowany do Ciebie\n✓ Wsparcie i motywację\n✓ Materiały i follow-up po spotkaniu\n\n**Sukces to nasza wspólna praca!** Ja daję wiedzę i narzędzia, Ty - działanie. Razem osiągamy cel! 🚀",
+            keywords: ['gwarancja', 'pewność', 'czy znajdę', 'obiecujesz', 'na pewno', 'czy zadziała']
+        },
+        doswiadczenie: {
+            response: "Mam **ponad 5 lat doświadczenia** w doradztwie zawodowym! 🎓\n\n✓ 300+ zadowolonych klientów\n✓ Współpraca z firmami (HR consulting)\n✓ Certyfikowany coach kariery\n✓ Ekspert LinkedIn i personal branding\n\nKażdy klient to unikalna historia sukcesu - zobacz opinie na stronie! ⭐",
+            keywords: ['doświadczenie', 'kwalifikacje', 'wykształcenie', 'certyfikat', 'kim jesteś', 'credentials']
+        },
+        zmiana_pracy: {
+            response: "Specjalizuję się w **zmianie pracy i branży**! 🔄\n\nPomagam w:\n✓ Analizie rynku i możliwości\n✓ Identyfikacji transferowalnych umiejętności\n✓ Przygotowaniu strategii zmiany\n✓ CV i rozmowach w nowej branży\n\nNawet radykalna zmiana jest możliwa - mam na to dowody! 💪 Chcesz poznać historie sukcesu?",
+            keywords: ['zmiana pracy', 'zmiana branży', 'przekwalifikowanie', 'nowa praca', 'inna branża', 'reorientacja']
+        },
+        wypalenie: {
+            response: "Wypalenie zawodowe to poważny temat - nie jesteś sam/sama. 🤗\n\nMogę pomóc:\n✓ Zdiagnozować przyczyny wypalenia\n✓ Określić czy to zmęczenie czy czas na zmianę\n✓ Zaplanować kolejne kroki (zmiana firmy/branży/odpoczynek)\n✓ Odbudować motywację\n\nNiekiedy wystarczy zmiana otoczenia, czasem trzeba zmienić ścieżkę. Porozmawiajmy! ☎️",
+            keywords: ['wypalenie', 'burnout', 'zmęczony', 'znudzony', 'nie chce mi się', 'kryzys', 'frustracja']
+        },
+        pierwsza_praca: {
+            response: "Absolwenci to moja specjalność! 🎓\n\nPomagam:\n✓ Znaleźć kierunek (jeśli nie wiesz co dalej)\n✓ Stworzyć pierwsze CV bez doświadczenia\n✓ Przygotować się do pierwszych rozmów\n✓ Budować LinkedIn od zera\n✓ Negocjować pierwsze wynagrodzenie\n\n**Pakiet dla absolwenta:** CV + przygotowanie do rozmowy = 300 zł (zamiast 340 zł) 🎉",
+            keywords: ['pierwsza praca', 'absolwent', 'po studiach', 'bez doświadczenia', 'student', 'junior', 'praktyki']
+        },
+        powrot: {
+            response: "Powrót na rynek po przerwie? To częstsza sytuacja niż myślisz! 🌟\n\nPomagam:\n✓ Zaktualizować CV (uwzględnić przerwę)\n✓ Odświeżyć umiejętności i LinkedIn\n✓ Przygotować się mentalnie i merytorycznie\n✓ Znaleźć elastyczne formy pracy\n\n**Przerwa to NIE problem** - to etap życia. Pokażemy Twoje atuty! 💪",
+            keywords: ['powrót', 'przerwa', 'urlop macierzyński', 'dzieci', 'choroba', 'gap', 'po przerwie', 'wracam']
+        },
+        linkedin: {
+            response: "LinkedIn to Twoja wizytówka w świecie biznesu! 💼\n\nPomagam z:\n✓ Optymalizacją profilu (headline, summary)\n✓ Budowaniem sieci kontaktów\n✓ Strategią publikacji\n✓ Personal branding\n\n**Bonus:** Przy zamówieniu CV dostajesz porady LinkedIn w cenie! 🎁",
+            keywords: ['linkedin', 'profil', 'sieć', 'networking', 'social media zawodowe']
+        },
+        negocjacje: {
+            response: "Negocjacje wynagrodzenia to sztuka - nauczę Cię jej! 💰\n\nOmówimy:\n✓ Jak badać rynek i stawki w branży\n✓ Kiedy i jak rozmawiać o pieniądzach\n✓ Techniki negocjacyjne\n✓ Co poza pensją (benefity, rozwój)\n\nTo część przygotowania do rozmowy kwalifikacyjnej! 🎤",
+            keywords: ['negocjacje', 'wynagrodzenie', 'pensja', 'podwyżka', 'ile żądać', 'stawka', 'zarobki']
+        },
+        firma: {
+            response: "Współpracuję również z firmami! 🏢\n\nOferta B2B:\n✓ Warsztaty rozwoju kariery dla pracowników\n✓ Konsultacje outplacement\n✓ Wsparcie działu HR w rekrutacji\n✓ Employer branding\n\nSkontaktuj się ze mną - przygotujemy ofertę dopasowaną do Twoich potrzeb: kontakt@kasiadudek.pl 📧",
+            keywords: ['firma', 'b2b', 'przedsiębiorstwo', 'hr', 'outplacement', 'dla firmy', 'biznes']
+        },
+        rabat: {
+            response: "Dziękuję za pytanie o rabat! 🙏\n\nCeny są już maksymalnie konkurencyjne, ALE:\n✓ Pakiety usług = taniej (np. absolwent: 300 zł zamiast 340 zł)\n✓ Możliwe raty (2-3 raty)\n✓ Dla stałych klientów - bonusy\n\nKwestie **indywidualnych ustaleń, rabatów grupowych czy negocjacji cen** najlepiej omów bezpośrednio z Kasią:\n📧 kontakt@kasiadudek.pl\n📞 +48 733 111 874\n\nLub kliknij 'Oddzwonię do Ciebie' 👈",
+            keywords: ['rabat', 'zniżka', 'taniej', 'promocja', 'okazja', 'przecena', 'discount']
         },
         default: {
-            response: "Hmm, nie jestem pewien jak odpowiedzieć na to pytanie. 🤔\n\nNajlepiej napisz bezpośrednio do Kasi:\n📧 kontakt@kasiadudek.pl\n📞 +48 733 111 874\n\nLub kliknij przycisk 'Oddzwonię do Ciebie' i Kasia skontaktu je się z Tobą! 😊"
+            response: "Hmm, to pytanie wykracza poza moją wiedzę. 🤔\n\nNajlepiej zapytaj bezpośrednio Kasię - odpowie na wszystkie szczegóły:\n📧 kontakt@kasiadudek.pl\n📞 +48 733 111 874\n⏰ Pon-Pt: 9:00 - 18:00\n\nLub kliknij przycisk 'Oddzwonię do Ciebie' i Kasia skontaktuje się z Tobą! 😊"
         }
     };
 
@@ -1223,10 +1279,10 @@ function initWidgets() {
         chatMessages.scrollTop = chatMessages.scrollHeight;
     }
 
-    function getBotResponse(userMessage) {
+    async function getBotResponse(userMessage) {
         const lowerMessage = userMessage.toLowerCase();
 
-        // Check knowledge base
+        // Check knowledge base first
         for (const [key, data] of Object.entries(chatbotKnowledge)) {
             if (key === 'default') continue;
 
@@ -1235,21 +1291,112 @@ function initWidgets() {
             }
         }
 
+        // If not in knowledge base, try AI fallback
+        const aiResponse = await getAIResponse(userMessage);
+        if (aiResponse) {
+            return aiResponse;
+        }
+
+        // Final fallback
         return chatbotKnowledge.default.response;
     }
 
-    function handleUserMessage(message) {
+    async function getAIResponse(userMessage) {
+        // Check if API key is configured
+        const apiKey = localStorage.getItem('chatbot_ai_key') || 'YOUR_CLAUDE_API_KEY';
+
+        // If no valid API key, return null (use default fallback)
+        if (!apiKey || apiKey === 'YOUR_CLAUDE_API_KEY') {
+            return null;
+        }
+
+        try {
+            const response = await fetch('https://api.anthropic.com/v1/messages', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'x-api-key': apiKey,
+                    'anthropic-version': '2023-06-01'
+                },
+                body: JSON.stringify({
+                    model: 'claude-3-haiku-20240307',
+                    max_tokens: 300,
+                    system: `Jesteś asystentem chatbota na stronie Katarzyny Dudek - doradcy zawodowego.
+
+TWOJA ROLA:
+- Odpowiadaj na pytania o doradztwo zawodowe, karierę, CV, rekrutację
+- Bądź pomocny, przyjazny i profesjonalny
+- Używaj polskiego języka
+- Odpowiedzi max 2-3 zdania (zwięźle!)
+
+KONTEKST O KASII:
+- Doradca zawodowy z 5-letnim doświadczeniem
+- Specjalizacja: zmiana pracy/branży, CV, przygotowanie do rozmów
+- Lokalizacja: Mikołów (śląskie), pracuje też online
+- Ceny: Konsultacja 180 zł, CV 140 zł, Rozmowa 200 zł, Testy 250 zł
+- Kontakt: kontakt@kasiadudek.pl, +48 733 111 874
+
+ZASADY:
+1. NIE odpowiadaj na pytania o:
+   - Rabaty, promocje, negocjacje cen
+   - Szczegółowe terminy, rezerwacje
+   - Kwestie biznesowe (targi, współpraca B2B)
+
+2. W tych przypadkach ZAWSZE przekieruj do Kasi:
+   "To pytanie najlepiej omówić bezpośrednio z Kasią: kontakt@kasiadudek.pl lub +48 733 111 874"
+
+3. Jeśli pytanie dotyczy czegoś poza doradz twem zawodowym (np. "czy naprawiasz samochody?"):
+   Wyjaśnij że to strona doradcy zawodowego, nie [co user myśli]
+
+4. Bądź empatyczny - ludzie często mają problemy zawodowe i potrzebują wsparcia`,
+                    messages: [{
+                        role: 'user',
+                        content: userMessage
+                    }]
+                })
+            });
+
+            if (!response.ok) {
+                console.error('AI API error:', response.status);
+                return null;
+            }
+
+            const data = await response.json();
+            return data.content[0].text;
+
+        } catch (error) {
+            console.error('AI fallback error:', error);
+            return null;
+        }
+    }
+
+    async function handleUserMessage(message) {
         if (!message.trim()) return;
 
         // Add user message
         addMessage(message, true);
         chatInput.value = '';
 
-        // Simulate typing delay
-        setTimeout(() => {
-            const response = getBotResponse(message);
-            addMessage(response, false);
-        }, 800);
+        // Show typing indicator
+        const typingIndicator = document.createElement('div');
+        typingIndicator.className = 'chatbot-message chatbot-message--bot typing-indicator';
+        typingIndicator.innerHTML = `
+            <div class="chatbot-message__avatar">K</div>
+            <div class="chatbot-message__content">
+                <p>...</p>
+            </div>
+        `;
+        chatMessages.appendChild(typingIndicator);
+        chatMessages.scrollTop = chatMessages.scrollHeight;
+
+        // Get response (async - may use AI)
+        const response = await getBotResponse(message);
+
+        // Remove typing indicator
+        typingIndicator.remove();
+
+        // Add bot response
+        addMessage(response, false);
     }
 
     // Send message
@@ -1265,16 +1412,35 @@ function initWidgets() {
 
     // Quick replies
     quickReplies.forEach(button => {
-        button.addEventListener('click', () => {
+        button.addEventListener('click', async () => {
             const question = button.dataset.question;
             const questionText = button.textContent.trim();
 
             addMessage(questionText, true);
 
-            setTimeout(() => {
-                const response = chatbotKnowledge[question]?.response || chatbotKnowledge.default.response;
-                addMessage(response, false);
-            }, 800);
+            // Show typing indicator
+            const typingIndicator = document.createElement('div');
+            typingIndicator.className = 'chatbot-message chatbot-message--bot typing-indicator';
+            typingIndicator.innerHTML = `
+                <div class="chatbot-message__avatar">K</div>
+                <div class="chatbot-message__content">
+                    <p>...</p>
+                </div>
+            `;
+            chatMessages.appendChild(typingIndicator);
+            chatMessages.scrollTop = chatMessages.scrollHeight;
+
+            // Wait a bit for realism
+            await new Promise(resolve => setTimeout(resolve, 500));
+
+            // Get response
+            const response = chatbotKnowledge[question]?.response || chatbotKnowledge.default.response;
+
+            // Remove typing indicator
+            typingIndicator.remove();
+
+            // Add response
+            addMessage(response, false);
         });
     });
 
@@ -1282,22 +1448,52 @@ function initWidgets() {
     callbackForm.addEventListener('submit', async (e) => {
         e.preventDefault();
 
+        const submitButton = callbackForm.querySelector('button[type="submit"]');
+        const originalText = submitButton.textContent;
+        submitButton.textContent = 'Wysyłam...';
+        submitButton.disabled = true;
+
         const formData = new FormData(callbackForm);
-        const data = {
+
+        // Prepare email data
+        const emailData = {
+            access_key: "YOUR_WEB3FORMS_KEY", // Replace with your Web3Forms access key
+            subject: "🔔 Nowa prośba o oddzwonienie - kasiadudek.pl",
+            from_name: "Strona kasiadudek.pl",
+            to_email: "kontakt@kasiadudek.pl",
             name: formData.get('name'),
             phone: formData.get('phone'),
-            preferredTime: formData.get('preferred-time')
+            preferred_time: formData.get('preferred-time'),
+            message: `Nowa prośba o oddzwonienie od ${formData.get('name')}.\n\nTelefon: ${formData.get('phone')}\nPreferowana pora: ${formData.get('preferred-time')}`
         };
 
-        // Here you would send data to your backend
-        console.log('Callback request:', data);
+        try {
+            // Send to Web3Forms
+            const response = await fetch('https://api.web3forms.com/submit', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Accept': 'application/json'
+                },
+                body: JSON.stringify(emailData)
+            });
 
-        // Show success message
-        showNotification('Dziękuję! Oddzwonię do Ciebie jak najszybciej! 📞', 'success');
+            const result = await response.json();
 
-        // Close widget and reset form
-        callbackWidget.classList.remove('active');
-        callbackForm.reset();
+            if (result.success) {
+                showNotification('Dziękuję! Oddzwonię do Ciebie w ciągu 2-4 godzin! 📞', 'success');
+                callbackWidget.classList.remove('active');
+                callbackForm.reset();
+            } else {
+                throw new Error('Form submission failed');
+            }
+        } catch (error) {
+            console.error('Callback form error:', error);
+            showNotification('Wystąpił błąd. Napisz bezpośrednio na kontakt@kasiadudek.pl lub zadzwoń +48 733 111 874', 'error');
+        } finally {
+            submitButton.textContent = originalText;
+            submitButton.disabled = false;
+        }
     });
 
     // Show badge on initial load (to attract attention)
