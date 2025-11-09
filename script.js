@@ -1444,37 +1444,31 @@ function initWidgets() {
 
         const formData = new FormData(callbackForm);
 
-        // Prepare email data
-        const emailData = {
-            access_key: "YOUR_WEB3FORMS_KEY", // Replace with your Web3Forms access key
-            subject: "🔔 Nowa prośba o oddzwonienie - kasiadudek.pl",
-            from_name: "Strona kasiadudek.pl",
-            to_email: "kontakt@kasiadudek.pl",
+        // Prepare callback data
+        const callbackData = {
             name: formData.get('name'),
             phone: formData.get('phone'),
-            preferred_time: formData.get('preferred-time'),
-            message: `Nowa prośba o oddzwonienie od ${formData.get('name')}.\n\nTelefon: ${formData.get('phone')}\nPreferowana pora: ${formData.get('preferred-time')}`
+            preferredTime: formData.get('preferred-time')
         };
 
         try {
-            // Send to Web3Forms
-            const response = await fetch('https://api.web3forms.com/submit', {
+            // Send to SMS API
+            const response = await fetch('/api/callback-sms', {
                 method: 'POST',
                 headers: {
-                    'Content-Type': 'application/json',
-                    'Accept': 'application/json'
+                    'Content-Type': 'application/json'
                 },
-                body: JSON.stringify(emailData)
+                body: JSON.stringify(callbackData)
             });
 
             const result = await response.json();
 
             if (result.success) {
-                showNotification('Dziękuję! Oddzwonię do Ciebie w ciągu 2-4 godzin! 📞', 'success');
+                showNotification('Dziękuję! Kasia dostała SMS - oddzwoni do Ciebie w ciągu 2-4 godzin! 📞', 'success');
                 callbackWidget.classList.remove('active');
                 callbackForm.reset();
             } else {
-                throw new Error('Form submission failed');
+                throw new Error('SMS sending failed');
             }
         } catch (error) {
             console.error('Callback form error:', error);
