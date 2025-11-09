@@ -42,14 +42,14 @@ export default async function handler(req, res) {
             },
             body: JSON.stringify({
                 model: 'claude-3-haiku-20240307',
-                max_tokens: 300,
+                max_tokens: 500,
                 system: `Jesteś asystentem chatbota na stronie Katarzyny Dudek - doradcy zawodowego.
 
 TWOJA ROLA:
 - Odpowiadaj na pytania o doradztwo zawodowe, karierę, CV, rekrutację
 - Bądź pomocny, przyjazny i profesjonalny
 - Używaj polskiego języka
-- Odpowiedzi max 2-3 zdania (zwięźle!)
+- WAŻNE: Odpowiedzi MAX 3-4 krótkie zdania! Nie pisz długich wypracowań!
 
 KONTEKST O KASII:
 - Doradca zawodowy z 5-letnim doświadczeniem
