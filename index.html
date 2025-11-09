@@ -23,7 +23,7 @@
                 <ul class="nav__list">
                     <li class="nav__item"><a href="#offer" class="nav__link active-link">Oferta</a></li>
                     <li class="nav__item"><a href="#blog" class="nav__link">Blog</a></li>
-                    <li class="nav__item"><a href="#shop" class="nav__link">Sklep</a></li>
+                    <li class="nav__item"><a href="#pricing" class="nav__link">Cennik</a></li>
                     <li class="nav__item"><a href="#about" class="nav__link">O mnie</a></li>
                     <li class="nav__item"><a href="#contact" class="nav__link nav__cta">Kontakt</a></li>
                 </ul>
@@ -329,22 +329,87 @@
         </div>
     </section>
 
-    <!-- Shop Section -->
-    <section class="shop section" id="shop">
+    <!-- Testimonials Section -->
+    <section class="testimonials section section--dark" id="testimonials">
         <div class="container">
             <div class="section__header">
-                <span class="section__subtitle">Kup teraz</span>
-                <h2 class="section__title">Sklep</h2>
+                <span class="section__subtitle">Co mówią klienci</span>
+                <h2 class="section__title">Opinie</h2>
                 <p class="section__description">
-                    Wybierz usługę i kup online. Płatność bezpieczna przez Przelewy24.
+                    Prawdziwe historie osób, którym pomogłam odkryć swoją ścieżkę kariery
+                </p>
+            </div>
+
+            <div class="testimonials__container">
+                <div class="testimonials__card">
+                    <div class="testimonials__stars">
+                        ★★★★★
+                    </div>
+                    <div class="testimonials__quote">
+                        <p class="testimonials__text" id="testimonial-text"></p>
+                        <span class="testimonials__cursor">|</span>
+                    </div>
+                    <div class="testimonials__author">
+                        <div class="testimonials__avatar">
+                            <span id="testimonial-avatar">A</span>
+                        </div>
+                        <div class="testimonials__info">
+                            <h4 class="testimonials__name" id="testimonial-name">Anna K.</h4>
+                            <p class="testimonials__role" id="testimonial-role">Zmiana branży, 32 lata</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="testimonials__dots">
+                    <span class="testimonials__dot active" data-index="0"></span>
+                    <span class="testimonials__dot" data-index="1"></span>
+                    <span class="testimonials__dot" data-index="2"></span>
+                    <span class="testimonials__dot" data-index="3"></span>
+                    <span class="testimonials__dot" data-index="4"></span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing Section -->
+    <section class="shop section" id="pricing">
+        <div class="container">
+            <div class="section__header">
+                <span class="section__subtitle">Rezerwuj online</span>
+                <h2 class="section__title">Cennik</h2>
+                <p class="section__description">
+                    Wybierz usługę i zarezerwuj termin online. Płatność bezpieczna przez Przelewy24.
                 </p>
             </div>
 
             <div class="shop__grid">
                 <!-- Shop Item 1 - Konsultacje -->
                 <article class="shop__card">
-                    <div class="shop__card-image">
-                        <img src="https://images.pexels.com/photos/7688336/pexels-photo-7688336.jpeg?auto=compress&cs=tinysrgb&w=800&h=600&fit=crop" alt="Konsultacje 1-1" loading="lazy" onerror="this.src='https://picsum.photos/800/600?random=1'">
+                    <div class="shop__card-image shop__card-image--illustration">
+                        <svg viewBox="0 0 400 300" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <!-- Background -->
+                            <rect width="400" height="300" fill="#f5f3f0"/>
+
+                            <!-- Desk -->
+                            <rect x="50" y="180" width="300" height="8" rx="4" fill="#8b7355" opacity="0.3"/>
+
+                            <!-- Person 1 (Left - Client) -->
+                            <circle cx="120" cy="140" r="30" fill="#497b55"/>
+                            <path d="M95 170 Q95 190 120 190 Q145 190 145 170" fill="#497b55"/>
+
+                            <!-- Person 2 (Right - Consultant) -->
+                            <circle cx="280" cy="140" r="30" fill="#3a6244"/>
+                            <path d="M255 170 Q255 190 280 190 Q305 190 305 170" fill="#3a6244"/>
+
+                            <!-- Speech bubbles -->
+                            <circle cx="150" cy="100" r="15" fill="#fff" opacity="0.9"/>
+                            <circle cx="165" cy="95" r="8" fill="#fff" opacity="0.9"/>
+                            <circle cx="250" cy="110" r="15" fill="#fff" opacity="0.9"/>
+                            <circle cx="235" cy="105" r="8" fill="#fff" opacity="0.9"/>
+
+                            <!-- Connection line -->
+                            <line x1="150" y1="160" x2="250" y2="160" stroke="#497b55" stroke-width="3" stroke-dasharray="5,5" opacity="0.5"/>
+                        </svg>
                         <div class="shop__card-badge">Najpopularniejsze</div>
                     </div>
                     <div class="shop__card-content">
@@ -370,8 +435,32 @@
 
                 <!-- Shop Item 2 - Budowanie CV -->
                 <article class="shop__card">
-                    <div class="shop__card-image">
-                        <img src="https://images.pexels.com/photos/4065876/pexels-photo-4065876.jpeg?auto=compress&cs=tinysrgb&w=800&h=600&fit=crop" alt="Budowanie CV" loading="lazy" onerror="this.src='https://picsum.photos/800/600?random=2'">
+                    <div class="shop__card-image shop__card-image--illustration">
+                        <svg viewBox="0 0 400 300" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <!-- Background -->
+                            <rect width="400" height="300" fill="#f5f3f0"/>
+
+                            <!-- CV Document -->
+                            <rect x="100" y="40" width="200" height="220" rx="8" fill="#fff" stroke="#497b55" stroke-width="3"/>
+
+                            <!-- Header lines -->
+                            <circle cx="150" cy="80" r="20" fill="#497b55" opacity="0.3"/>
+                            <rect x="180" y="70" width="90" height="8" rx="4" fill="#497b55"/>
+                            <rect x="180" y="85" width="70" height="6" rx="3" fill="#8b7355" opacity="0.5"/>
+
+                            <!-- Content lines -->
+                            <rect x="120" y="120" width="160" height="6" rx="3" fill="#3a6244" opacity="0.4"/>
+                            <rect x="120" y="135" width="140" height="6" rx="3" fill="#3a6244" opacity="0.3"/>
+                            <rect x="120" y="150" width="150" height="6" rx="3" fill="#3a6244" opacity="0.3"/>
+
+                            <rect x="120" y="175" width="160" height="6" rx="3" fill="#3a6244" opacity="0.4"/>
+                            <rect x="120" y="190" width="130" height="6" rx="3" fill="#3a6244" opacity="0.3"/>
+                            <rect x="120" y="205" width="145" height="6" rx="3" fill="#3a6244" opacity="0.3"/>
+
+                            <!-- Checkmark -->
+                            <circle cx="320" cy="220" r="25" fill="#497b55"/>
+                            <path d="M310 220 L318 228 L330 212" stroke="#fff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
                     </div>
                     <div class="shop__card-content">
                         <h3 class="shop__card-title">Budowanie CV</h3>
@@ -396,8 +485,34 @@
 
                 <!-- Shop Item 3 - Przygotowanie do rozmowy -->
                 <article class="shop__card">
-                    <div class="shop__card-image">
-                        <img src="https://images.pexels.com/photos/5439381/pexels-photo-5439381.jpeg?auto=compress&cs=tinysrgb&w=800&h=600&fit=crop" alt="Przygotowanie do rozmowy" loading="lazy" onerror="this.src='https://picsum.photos/800/600?random=3'">
+                    <div class="shop__card-image shop__card-image--illustration">
+                        <svg viewBox="0 0 400 300" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <!-- Background -->
+                            <rect width="400" height="300" fill="#f5f3f0"/>
+
+                            <!-- Podium/Stage -->
+                            <ellipse cx="200" cy="220" rx="120" ry="15" fill="#8b7355" opacity="0.2"/>
+
+                            <!-- Person presenting -->
+                            <circle cx="200" cy="140" r="35" fill="#497b55"/>
+                            <path d="M170 175 Q170 200 200 200 Q230 200 230 175" fill="#497b55"/>
+
+                            <!-- Presenting arms -->
+                            <path d="M165 180 L130 160" stroke="#497b55" stroke-width="8" stroke-linecap="round"/>
+                            <path d="M235 180 L270 160" stroke="#497b55" stroke-width="8" stroke-linecap="round"/>
+
+                            <!-- Microphone -->
+                            <line x1="200" y1="200" x2="200" y2="240" stroke="#3a6244" stroke-width="4"/>
+                            <rect x="195" y="235" width="10" height="25" rx="5" fill="#3a6244"/>
+                            <circle cx="200" cy="232" r="8" fill="#3a6244"/>
+
+                            <!-- Speech indicators -->
+                            <path d="M140 110 Q130 100 140 90" stroke="#497b55" stroke-width="3" stroke-linecap="round" opacity="0.6"/>
+                            <path d="M260 110 Q270 100 260 90" stroke="#497b55" stroke-width="3" stroke-linecap="round" opacity="0.6"/>
+                            <circle cx="200" cy="75" r="8" fill="#497b55" opacity="0.4"/>
+                            <circle cx="185" cy="65" r="5" fill="#497b55" opacity="0.3"/>
+                            <circle cx="215" cy="65" r="5" fill="#497b55" opacity="0.3"/>
+                        </svg>
                     </div>
                     <div class="shop__card-content">
                         <h3 class="shop__card-title">Przygotowanie do rozmowy</h3>
@@ -422,8 +537,39 @@
 
                 <!-- Shop Item 4 - Testy predyspozycji -->
                 <article class="shop__card">
-                    <div class="shop__card-image">
-                        <img src="https://images.pexels.com/photos/8923188/pexels-photo-8923188.jpeg?auto=compress&cs=tinysrgb&w=800&h=600&fit=crop" alt="Testy predyspozycji" loading="lazy" onerror="this.src='https://picsum.photos/800/600?random=4'">
+                    <div class="shop__card-image shop__card-image--illustration">
+                        <svg viewBox="0 0 400 300" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <!-- Background -->
+                            <rect width="400" height="300" fill="#f5f3f0"/>
+
+                            <!-- Clipboard -->
+                            <rect x="120" y="50" width="160" height="200" rx="8" fill="#fff" stroke="#497b55" stroke-width="3"/>
+                            <rect x="170" y="40" width="60" height="20" rx="10" fill="#497b55"/>
+
+                            <!-- Checklist items -->
+                            <circle cx="145" cy="90" r="8" stroke="#497b55" stroke-width="2" fill="none"/>
+                            <path d="M142 90 L145 93 L149 87" stroke="#497b55" stroke-width="2" stroke-linecap="round"/>
+                            <rect x="165" y="85" width="90" height="6" rx="3" fill="#3a6244" opacity="0.4"/>
+
+                            <circle cx="145" cy="120" r="8" stroke="#497b55" stroke-width="2" fill="none"/>
+                            <path d="M142 120 L145 123 L149 117" stroke="#497b55" stroke-width="2" stroke-linecap="round"/>
+                            <rect x="165" y="115" width="80" height="6" rx="3" fill="#3a6244" opacity="0.4"/>
+
+                            <circle cx="145" cy="150" r="8" stroke="#497b55" stroke-width="2" fill="none"/>
+                            <rect x="165" y="145" width="85" height="6" rx="3" fill="#3a6244" opacity="0.3"/>
+
+                            <circle cx="145" cy="180" r="8" stroke="#497b55" stroke-width="2" fill="none"/>
+                            <rect x="165" y="175" width="75" height="6" rx="3" fill="#3a6244" opacity="0.3"/>
+
+                            <!-- Chart/Graph -->
+                            <line x1="140" y1="220" x2="180" y2="205" stroke="#497b55" stroke-width="3"/>
+                            <line x1="180" y1="205" x2="220" y2="215" stroke="#497b55" stroke-width="3"/>
+                            <line x1="220" y1="215" x2="260" y2="195" stroke="#497b55" stroke-width="3"/>
+                            <circle cx="140" cy="220" r="4" fill="#497b55"/>
+                            <circle cx="180" cy="205" r="4" fill="#497b55"/>
+                            <circle cx="220" cy="215" r="4" fill="#497b55"/>
+                            <circle cx="260" cy="195" r="4" fill="#497b55"/>
+                        </svg>
                         <div class="shop__card-badge">Kompleksowo</div>
                     </div>
                     <div class="shop__card-content">
@@ -512,6 +658,117 @@
                         </button>
                         <p class="form__note">Nie spamujemy! Otrzymasz tylko wartościowe treści.</p>
                     </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="faq section" id="faq">
+        <div class="container">
+            <div class="section__header">
+                <span class="section__subtitle">Najczęściej zadawane pytania</span>
+                <h2 class="section__title">FAQ</h2>
+                <p class="section__description">
+                    Masz pytania? Znajdź odpowiedzi na najczęściej zadawane pytania
+                </p>
+            </div>
+
+            <div class="faq__container">
+                <div class="faq__item">
+                    <button class="faq__question">
+                        <span>Czy konsultacje odbywają się online czy stacjonarnie?</span>
+                        <svg class="faq__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <polyline points="6 9 12 15 18 9"></polyline>
+                        </svg>
+                    </button>
+                    <div class="faq__answer">
+                        <p>Oferuję obie formy konsultacji - możesz wybrać spotkanie online (przez Zoom, Google Meet) lub stacjonarne w moim gabinecie. Forma online jest równie efektywna i wygodna, szczególnie dla osób z innych miast.</p>
+                    </div>
+                </div>
+
+                <div class="faq__item">
+                    <button class="faq__question">
+                        <span>Ile trwa przygotowanie profesjonalnego CV?</span>
+                        <svg class="faq__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <polyline points="6 9 12 15 18 9"></polyline>
+                        </svg>
+                    </button>
+                    <div class="faq__answer">
+                        <p>Proces tworzenia CV trwa zazwyczaj 3-5 dni roboczych. Najpierw przeprowadzam z Tobą rozmowę (30-45 min), następnie przygotowuję pierwszą wersję, którą wspólnie dopracowujemy. Otrzymujesz 2 korekty w cenie.</p>
+                    </div>
+                </div>
+
+                <div class="faq__item">
+                    <button class="faq__question">
+                        <span>Czy mogę dostać fakturę VAT?</span>
+                        <svg class="faq__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <polyline points="6 9 12 15 18 9"></polyline>
+                        </svg>
+                    </button>
+                    <div class="faq__answer">
+                        <p>Tak, oczywiście! Po dokonaniu płatności automatycznie otrzymasz fakturę VAT na podany adres email. Jeśli potrzebujesz faktury na firmę, podaj dane podczas rezerwacji.</p>
+                    </div>
+                </div>
+
+                <div class="faq__item">
+                    <button class="faq__question">
+                        <span>Co jeśli nie wiem, czego chcę od kariery?</span>
+                        <svg class="faq__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <polyline points="6 9 12 15 18 9"></polyline>
+                        </svg>
+                    </button>
+                    <div class="faq__answer">
+                        <p>To idealny moment, żeby ze mną porozmawiać! Wiele osób przychodzi właśnie z tym problemem. Podczas konsultacji używam sprawdzonych narzędzi i pytań, które pomogą Ci odkryć Twoje prawdziwe pasje, wartości i cele zawodowe.</p>
+                    </div>
+                </div>
+
+                <div class="faq__item">
+                    <button class="faq__question">
+                        <span>Czy oferujesz płatność w ratach lub pakiety?</span>
+                        <svg class="faq__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <polyline points="6 9 12 15 18 9"></polyline>
+                        </svg>
+                    </button>
+                    <div class="faq__answer">
+                        <p>Tak! Oferuję pakiety łączone (np. konsultacja + CV + przygotowanie do rozmowy) z rabatem 15-20%. Możliwa jest również płatność ratalna przez Przelewy24 - szczegóły podczas rezerwacji.</p>
+                    </div>
+                </div>
+
+                <div class="faq__item">
+                    <button class="faq__question">
+                        <span>Czy pierwsza konsultacja jest płatna?</span>
+                        <svg class="faq__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <polyline points="6 9 12 15 18 9"></polyline>
+                        </svg>
+                    </button>
+                    <div class="faq__answer">
+                        <p>Oferuję BEZPŁATNĄ 15-minutową konsultację telefoniczną, podczas której poznamy się i ustalimy, jak mogę Ci najlepiej pomóc. Pełna konsultacja (60 min) jest już płatna zgodnie z cennikiem.</p>
+                    </div>
+                </div>
+
+                <div class="faq__item">
+                    <button class="faq__question">
+                        <span>Jak długo trwa cały proces przygotowania do zmiany pracy?</span>
+                        <svg class="faq__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <polyline points="6 9 12 15 18 9"></polyline>
+                        </svg>
+                    </button>
+                    <div class="faq__answer">
+                        <p>To zależy od Twoich potrzeb i tempa pracy. Typowo: 1-2 konsultacje (2-3 tygodnie) + przygotowanie dokumentów (1 tydzień) + przygotowanie do rozmów (1-2 tygodnie). Łącznie: 4-8 tygodni od startu do pierwszych rozmów rekrutacyjnych.</p>
+                    </div>
+                </div>
+
+                <div class="faq__item">
+                    <button class="faq__question">
+                        <span>Czy pomagasz osobom 40+/50+ szukającym zmiany?</span>
+                        <svg class="faq__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <polyline points="6 9 12 15 18 9"></polyline>
+                        </svg>
+                    </button>
+                    <div class="faq__answer">
+                        <p>Oczywiście! Pracuję z osobami w każdym wieku - od studentów po osoby 50+. Każdy wiek ma swoje unikalne wyzwania i możliwości. Moje podejście jest zawsze indywidualne i dostosowane do Twojej sytuacji życiowej.</p>
+                    </div>
                 </div>
             </div>
         </div>
@@ -673,7 +930,7 @@
                         <h4 class="footer__title">Kontakt</h4>
                         <ul class="footer__list">
                             <li><a href="mailto:kontakt@kasiadudek.pl">kontakt@kasiadudek.pl</a></li>
-                            <li><a href="tel:+48123456789">+48 123 456 789</a></li>
+                            <li><a href="tel:+48733111874">+48 733 111 874</a></li>
                             <li>Pon-Pt: 9:00 - 18:00</li>
                         </ul>
                     </div>

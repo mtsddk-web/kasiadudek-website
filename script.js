@@ -980,6 +980,160 @@ if (document.readyState === 'loading') {
     initParallax();
 }
 
+// ===== FAQ Accordion =====
+function initFAQ() {
+    const faqQuestions = document.querySelectorAll('.faq__question');
+
+    faqQuestions.forEach(question => {
+        question.addEventListener('click', () => {
+            const faqItem = question.parentElement;
+            const isActive = faqItem.classList.contains('active');
+
+            // Close all other items
+            document.querySelectorAll('.faq__item').forEach(item => {
+                item.classList.remove('active');
+            });
+
+            // Toggle current item
+            if (!isActive) {
+                faqItem.classList.add('active');
+            }
+        });
+    });
+}
+
+// Initialize FAQ when DOM is ready
+if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initFAQ);
+} else {
+    initFAQ();
+}
+
+// ===== Testimonials Typewriter Effect =====
+const testimonials = [
+    {
+        text: "Katarzyna pomogła mi odkryć, że moja pasja do pomagania ludziom może stać się moim zawodem. Po 5 latach w księgowości zmieniłam branżę i dziś jestem Project Managerem w IT. Nie mogłam tego zrobić bez jej wsparcia!",
+        name: "Anna K.",
+        role: "Zmiana branży, 32 lata",
+        avatar: "A"
+    },
+    {
+        text: "Nie wiedziałem, co dalej po studiach. Konsultacje z Kasią pomogły mi zrozumieć moje mocne strony i wybrać kierunek kariery. Po 3 miesiącach dostałem pierwszą pracę w marketingu – mojej wymarzonej branży!",
+        name: "Michał W.",
+        role: "Absolwent, 24 lata",
+        avatar: "M"
+    },
+    {
+        text: "Po 10 latach przerwy na wychowanie dzieci bałam się wrócić na rynek pracy. Kasia przygotowała dla mnie CV i trenowała ze mną rozmowy kwalifikacyjne. Dziś pracuję jako HR Specialist i jestem bardzo szczęśliwa!",
+        name: "Beata S.",
+        role: "Powrót na rynek, 43 lata",
+        avatar: "B"
+    },
+    {
+        text: "Czułem wypalenie zawodowe i nie wiedziałem, czy to czas na zmianę. Konsultacja pomogła mi zrozumieć, że potrzebuję nowych wyzwań. Zmieniłem firmę, negocjując 40% podwyżkę. Najlepsza decyzja w mojej karierze!",
+        name: "Tomasz L.",
+        role: "Zmiana firmy, 36 lat",
+        avatar: "T"
+    },
+    {
+        text: "Testy predyspozycji pokazały mi, że mam talent do pracy z danymi. Zmieniłam ścieżkę z administracji na Data Analytics. To była rewolucja w moim życiu zawodowym. Kasia otworzyła mi oczy na mój prawdziwy potencjał!",
+        name: "Joanna P.",
+        role: "Przekwalifikowanie, 29 lat",
+        avatar: "J"
+    }
+];
+
+let currentTestimonialIndex = 0;
+let charIndex = 0;
+let isDeleting = false;
+let typewriterTimeout;
+
+function typeWriter() {
+    const textElement = document.getElementById('testimonial-text');
+    const nameElement = document.getElementById('testimonial-name');
+    const roleElement = document.getElementById('testimonial-role');
+    const avatarElement = document.getElementById('testimonial-avatar');
+    const dots = document.querySelectorAll('.testimonials__dot');
+
+    if (!textElement) return;
+
+    const currentTestimonial = testimonials[currentTestimonialIndex];
+
+    if (!isDeleting && charIndex <= currentTestimonial.text.length) {
+        // Typing
+        textElement.textContent = currentTestimonial.text.substring(0, charIndex);
+        charIndex++;
+        typewriterTimeout = setTimeout(typeWriter, 30); // Speed of typing
+    } else if (!isDeleting && charIndex > currentTestimonial.text.length) {
+        // Finished typing, wait before deleting
+        typewriterTimeout = setTimeout(() => {
+            isDeleting = true;
+            typeWriter();
+        }, 5000); // Wait 5 seconds before switching to next
+    } else if (isDeleting && charIndex > 0) {
+        // Deleting
+        textElement.textContent = currentTestimonial.text.substring(0, charIndex);
+        charIndex--;
+        typewriterTimeout = setTimeout(typeWriter, 15); // Speed of deleting (faster)
+    } else if (isDeleting && charIndex === 0) {
+        // Finished deleting, move to next testimonial
+        isDeleting = false;
+        currentTestimonialIndex = (currentTestimonialIndex + 1) % testimonials.length;
+
+        // Update name, role, avatar
+        const nextTestimonial = testimonials[currentTestimonialIndex];
+        nameElement.textContent = nextTestimonial.name;
+        roleElement.textContent = nextTestimonial.role;
+        avatarElement.textContent = nextTestimonial.avatar;
+
+        // Update active dot
+        dots.forEach((dot, index) => {
+            dot.classList.toggle('active', index === currentTestimonialIndex);
+        });
+
+        typewriterTimeout = setTimeout(typeWriter, 500); // Short pause before typing next
+    }
+}
+
+function initTestimonials() {
+    const dots = document.querySelectorAll('.testimonials__dot');
+
+    // Start typewriter effect
+    typeWriter();
+
+    // Allow manual dot selection
+    dots.forEach((dot, index) => {
+        dot.addEventListener('click', () => {
+            clearTimeout(typewriterTimeout);
+            currentTestimonialIndex = index;
+            charIndex = 0;
+            isDeleting = false;
+
+            const textElement = document.getElementById('testimonial-text');
+            const nameElement = document.getElementById('testimonial-name');
+            const roleElement = document.getElementById('testimonial-role');
+            const avatarElement = document.getElementById('testimonial-avatar');
+
+            const testimonial = testimonials[index];
+            textElement.textContent = '';
+            nameElement.textContent = testimonial.name;
+            roleElement.textContent = testimonial.role;
+            avatarElement.textContent = testimonial.avatar;
+
+            dots.forEach((d, i) => d.classList.toggle('active', i === index));
+
+            typeWriter();
+        });
+    });
+}
+
+// Initialize testimonials when DOM is ready
+if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initTestimonials);
+} else {
+    initTestimonials();
+}
+
 // ===== Export for testing (if needed) =====
 if (typeof module !== 'undefined' && module.exports) {
     module.exports = {
