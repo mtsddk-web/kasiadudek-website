@@ -956,6 +956,97 @@
         </svg>
     </button>
 
+    <!-- Floating Widgets -->
+    <div class="floating-widgets">
+        <!-- Callback Button -->
+        <button class="floating-widget-btn floating-widget-btn--callback" id="callback-btn" aria-label="Oddzwonię do Ciebie">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
+            </svg>
+            <span class="floating-widget-tooltip">Oddzwonię do Ciebie</span>
+        </button>
+
+        <!-- Chat Button -->
+        <button class="floating-widget-btn floating-widget-btn--chat" id="chat-btn" aria-label="Chat z asystentem">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
+            </svg>
+            <span class="floating-widget-badge" id="chat-badge">1</span>
+            <span class="floating-widget-tooltip">Porozmawiaj z asystentem</span>
+        </button>
+    </div>
+
+    <!-- Callback Widget Modal -->
+    <div class="callback-widget" id="callback-widget">
+        <div class="callback-widget__header">
+            <h3 class="callback-widget__title">Oddzwonię do Ciebie</h3>
+            <button class="callback-widget__close" id="callback-close" aria-label="Zamknij">✕</button>
+        </div>
+        <div class="callback-widget__body">
+            <p class="callback-widget__description">Zostaw swój numer, a ja skontaktuję się z Tobą w ciągu 24 godzin</p>
+            <form class="callback-widget__form" id="callback-form">
+                <div class="form__group">
+                    <input type="text" class="form__input" placeholder="Imię" name="name" required>
+                </div>
+                <div class="form__group">
+                    <input type="tel" class="form__input" placeholder="Numer telefonu" name="phone" pattern="[0-9]{9,12}" required>
+                </div>
+                <div class="form__group">
+                    <select class="form__input" name="preferred-time">
+                        <option value="">Preferowana godzina kontaktu</option>
+                        <option value="morning">Rano (9:00-12:00)</option>
+                        <option value="afternoon">Popołudnie (12:00-16:00)</option>
+                        <option value="evening">Wieczór (16:00-18:00)</option>
+                    </select>
+                </div>
+                <button type="submit" class="button button--primary button--full">
+                    Wyślij prośbę
+                </button>
+            </form>
+            <p class="callback-widget__note">📞 Oddzwaniam zwykle tego samego dnia</p>
+        </div>
+    </div>
+
+    <!-- Chatbot Widget -->
+    <div class="chatbot-widget" id="chatbot-widget">
+        <div class="chatbot-widget__header">
+            <div class="chatbot-widget__avatar">
+                <span>K</span>
+            </div>
+            <div class="chatbot-widget__info">
+                <h3 class="chatbot-widget__title">Asystent Kasi</h3>
+                <p class="chatbot-widget__status">
+                    <span class="chatbot-widget__status-dot"></span>
+                    Online
+                </p>
+            </div>
+            <button class="chatbot-widget__close" id="chatbot-close" aria-label="Zamknij">✕</button>
+        </div>
+        <div class="chatbot-widget__messages" id="chatbot-messages">
+            <div class="chatbot-message chatbot-message--bot">
+                <div class="chatbot-message__avatar">K</div>
+                <div class="chatbot-message__content">
+                    <p>Cześć! 👋 Jestem asystentem Kasi. Jak mogę Ci pomóc?</p>
+                </div>
+            </div>
+        </div>
+        <div class="chatbot-widget__quick-replies" id="chatbot-quick-replies">
+            <button class="chatbot-quick-reply" data-question="cennik">💰 Cennik usług</button>
+            <button class="chatbot-quick-reply" data-question="konsultacja">🗣️ Jak wygląda konsultacja?</button>
+            <button class="chatbot-quick-reply" data-question="online">💻 Czy online?</button>
+            <button class="chatbot-quick-reply" data-question="kontakt">📞 Kontakt do Kasi</button>
+        </div>
+        <div class="chatbot-widget__input">
+            <input type="text" class="chatbot-input" id="chatbot-input" placeholder="Napisz wiadomość...">
+            <button class="chatbot-send-btn" id="chatbot-send">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <line x1="22" y1="2" x2="11" y2="13"></line>
+                    <polygon points="22 2 15 22 11 13 2 9 22 2"></polygon>
+                </svg>
+            </button>
+        </div>
+    </div>
+
     <script src="script.js"></script>
 </body>
 </html>

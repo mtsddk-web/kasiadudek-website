@@ -1134,6 +1134,187 @@ if (document.readyState === 'loading') {
     initTestimonials();
 }
 
+// ===== Floating Widgets (Chatbot + Callback) =====
+function initWidgets() {
+    // Elements
+    const chatBtn = document.getElementById('chat-btn');
+    const chatWidget = document.getElementById('chatbot-widget');
+    const chatClose = document.getElementById('chatbot-close');
+    const chatBadge = document.getElementById('chat-badge');
+
+    const callbackBtn = document.getElementById('callback-btn');
+    const callbackWidget = document.getElementById('callback-widget');
+    const callbackClose = document.getElementById('callback-close');
+    const callbackForm = document.getElementById('callback-form');
+
+    const chatMessages = document.getElementById('chatbot-messages');
+    const chatInput = document.getElementById('chatbot-input');
+    const chatSend = document.getElementById('chatbot-send');
+    const quickReplies = document.querySelectorAll('.chatbot-quick-reply');
+
+    // Chatbot knowledge base
+    const chatbotKnowledge = {
+        cennik: {
+            response: "Oto mój cennik:\n\n💼 Konsultacja 1-1: 180 zł\n📄 Budowanie CV: 140 zł\n🎤 Przygotowanie do rozmowy: 200 zł\n📊 Testy predyspozycji: 250 zł\n\nMożesz je zamówić bezpośrednio przez stronę w sekcji Cennik! 😊",
+            keywords: ['cennik', 'cena', 'ceny', 'koszt', 'ile', 'płatność', 'zapłać']
+        },
+        konsultacja: {
+            response: "Konsultacja 1-1 to indywidualne spotkanie (60 minut) online lub stacjonarnie, podczas którego:\n\n✓ Analizujemy Twoją sytuację zawodową\n✓ Odkrywamy mocne strony i talenty\n✓ Tworzymy plan działania\n✓ Dostajesz materiały po spotkaniu\n\nMożesz umówić termin przez formularz kontaktowy! 📅",
+            keywords: ['konsultacja', 'spotkanie', '1-1', 'rozmowa', 'sesja', 'coaching']
+        },
+        online: {
+            response: "Tak! 💻 Wszystkie usługi oferuję zarówno online (Zoom, Google Meet), jak i stacjonarnie.\n\nSpotkania online są równie efektywne i wygodne, szczególnie dla osób z innych miast. Ty wybierasz formę, która Ci odpowiada! 😊",
+            keywords: ['online', 'stacjonarnie', 'gdzie', 'zdalne', 'zoom', 'meet', 'video']
+        },
+        kontakt: {
+            response: "Skontaktuj się z Kasią:\n\n📧 Email: kontakt@kasiadudek.pl\n📞 Telefon: +48 733 111 874\n⏰ Pon-Pt: 9:00 - 18:00\n\nMożesz też wypełnić formularz kontaktowy na stronie lub skorzystać z przycisku 'Oddzwonię do Ciebie' 👈",
+            keywords: ['kontakt', 'telefon', 'email', 'napisać', 'zadzwonić', 'umówić']
+        },
+        cv: {
+            response: "Profesjonalne CV to Twoja wizytówka! 📄\n\nOtrzymasz:\n✓ Nowoczesny design dopasowany do branży\n✓ Optymalizację pod systemy ATS\n✓ 2 wersje kolorystyczne\n✓ 2 korekty w cenie\n\nCzas realizacji: 3-5 dni. Cena: 140 zł",
+            keywords: ['cv', 'życiorys', 'resume', 'dokument', 'aplikacja']
+        },
+        czas: {
+            response: "Typowy czas współpracy:\n\n📅 Konsultacje: 1-2 spotkania (2-3 tygodnie)\n📄 CV: 3-5 dni roboczych\n🎤 Przygotowanie do rozmowy: 1-2 sesje\n📊 Testy: wyniki w 7 dni\n\nŁącznie: 4-8 tygodni od startu do pierwszych rozmów rekrutacyjnych! ⏱️",
+            keywords: ['ile trwa', 'czas', 'kiedy', 'długo', 'szybko', 'termin']
+        },
+        default: {
+            response: "Hmm, nie jestem pewien jak odpowiedzieć na to pytanie. 🤔\n\nNajlepiej napisz bezpośrednio do Kasi:\n📧 kontakt@kasiadudek.pl\n📞 +48 733 111 874\n\nLub kliknij przycisk 'Oddzwonię do Ciebie' i Kasia skontaktu je się z Tobą! 😊"
+        }
+    };
+
+    // Toggle chatbot
+    chatBtn.addEventListener('click', () => {
+        chatWidget.classList.toggle('active');
+        callbackWidget.classList.remove('active');
+        if (chatWidget.classList.contains('active')) {
+            chatBadge.style.display = 'none';
+            chatInput.focus();
+        }
+    });
+
+    chatClose.addEventListener('click', () => {
+        chatWidget.classList.remove('active');
+    });
+
+    // Toggle callback widget
+    callbackBtn.addEventListener('click', () => {
+        callbackWidget.classList.toggle('active');
+        chatWidget.classList.remove('active');
+    });
+
+    callbackClose.addEventListener('click', () => {
+        callbackWidget.classList.remove('active');
+    });
+
+    // Chatbot message handling
+    function addMessage(text, isUser = false) {
+        const messageDiv = document.createElement('div');
+        messageDiv.className = `chatbot-message ${isUser ? 'chatbot-message--user' : 'chatbot-message--bot'}`;
+
+        messageDiv.innerHTML = `
+            <div class="chatbot-message__avatar">${isUser ? 'U' : 'K'}</div>
+            <div class="chatbot-message__content">
+                <p>${text}</p>
+            </div>
+        `;
+
+        chatMessages.appendChild(messageDiv);
+        chatMessages.scrollTop = chatMessages.scrollHeight;
+    }
+
+    function getBotResponse(userMessage) {
+        const lowerMessage = userMessage.toLowerCase();
+
+        // Check knowledge base
+        for (const [key, data] of Object.entries(chatbotKnowledge)) {
+            if (key === 'default') continue;
+
+            if (data.keywords.some(keyword => lowerMessage.includes(keyword))) {
+                return data.response;
+            }
+        }
+
+        return chatbotKnowledge.default.response;
+    }
+
+    function handleUserMessage(message) {
+        if (!message.trim()) return;
+
+        // Add user message
+        addMessage(message, true);
+        chatInput.value = '';
+
+        // Simulate typing delay
+        setTimeout(() => {
+            const response = getBotResponse(message);
+            addMessage(response, false);
+        }, 800);
+    }
+
+    // Send message
+    chatSend.addEventListener('click', () => {
+        handleUserMessage(chatInput.value);
+    });
+
+    chatInput.addEventListener('keypress', (e) => {
+        if (e.key === 'Enter') {
+            handleUserMessage(chatInput.value);
+        }
+    });
+
+    // Quick replies
+    quickReplies.forEach(button => {
+        button.addEventListener('click', () => {
+            const question = button.dataset.question;
+            const questionText = button.textContent.trim();
+
+            addMessage(questionText, true);
+
+            setTimeout(() => {
+                const response = chatbotKnowledge[question]?.response || chatbotKnowledge.default.response;
+                addMessage(response, false);
+            }, 800);
+        });
+    });
+
+    // Callback form handling
+    callbackForm.addEventListener('submit', async (e) => {
+        e.preventDefault();
+
+        const formData = new FormData(callbackForm);
+        const data = {
+            name: formData.get('name'),
+            phone: formData.get('phone'),
+            preferredTime: formData.get('preferred-time')
+        };
+
+        // Here you would send data to your backend
+        console.log('Callback request:', data);
+
+        // Show success message
+        showNotification('Dziękuję! Oddzwonię do Ciebie jak najszybciej! 📞', 'success');
+
+        // Close widget and reset form
+        callbackWidget.classList.remove('active');
+        callbackForm.reset();
+    });
+
+    // Show badge on initial load (to attract attention)
+    setTimeout(() => {
+        if (chatBadge) {
+            chatBadge.style.display = 'flex';
+        }
+    }, 3000);
+}
+
+// Initialize widgets when DOM is ready
+if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initWidgets);
+} else {
+    initWidgets();
+}
+
 // ===== Export for testing (if needed) =====
 if (typeof module !== 'undefined' && module.exports) {
     module.exports = {
