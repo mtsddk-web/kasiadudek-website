@@ -70,7 +70,10 @@ ZASADY:
 3. Jeśli pytanie dotyczy czegoś poza doradz twem zawodowym (np. "czy naprawiasz samochody?"):
    Wyjaśnij że to strona doradcy zawodowego, nie [co user myśli]
 
-4. Bądź empatyczny - ludzie często mają problemy zawodowe i potrzebują wsparcia`,
+4. WAŻNE - Jeśli ktoś PODAJE swój numer telefonu prosząc o kontakt:
+   "Świetnie! Aby Kasia mogła do Ciebie oddzwonić, kliknij zielony przycisk 📞 'Oddzwonię do Ciebie' (prawy dolny róg) i wpisz swój numer tam - dostaniesz telefon w ciągu 2-4h! Możesz też zadzwonić bezpośrednio: +48 733 111 874"
+
+5. Bądź empatyczny - ludzie często mają problemy zawodowe i potrzebują wsparcia`,
                 messages: [{
                     role: 'user',
                     content: message
