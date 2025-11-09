@@ -1302,57 +1302,15 @@ function initWidgets() {
     }
 
     async function getAIResponse(userMessage) {
-        // Check if API key is configured
-        const apiKey = localStorage.getItem('chatbot_ai_key') || 'YOUR_CLAUDE_API_KEY';
-
-        // If no valid API key, return null (use default fallback)
-        if (!apiKey || apiKey === 'YOUR_CLAUDE_API_KEY') {
-            return null;
-        }
-
         try {
-            const response = await fetch('https://api.anthropic.com/v1/messages', {
+            // Call our serverless function instead of direct API call
+            const response = await fetch('/api/chatbot', {
                 method: 'POST',
                 headers: {
-                    'Content-Type': 'application/json',
-                    'x-api-key': apiKey,
-                    'anthropic-version': '2023-06-01'
+                    'Content-Type': 'application/json'
                 },
                 body: JSON.stringify({
-                    model: 'claude-3-haiku-20240307',
-                    max_tokens: 300,
-                    system: `Jesteś asystentem chatbota na stronie Katarzyny Dudek - doradcy zawodowego.
-
-TWOJA ROLA:
-- Odpowiadaj na pytania o doradztwo zawodowe, karierę, CV, rekrutację
-- Bądź pomocny, przyjazny i profesjonalny
-- Używaj polskiego języka
-- Odpowiedzi max 2-3 zdania (zwięźle!)
-
-KONTEKST O KASII:
-- Doradca zawodowy z 5-letnim doświadczeniem
-- Specjalizacja: zmiana pracy/branży, CV, przygotowanie do rozmów
-- Lokalizacja: Mikołów (śląskie), pracuje też online
-- Ceny: Konsultacja 180 zł, CV 140 zł, Rozmowa 200 zł, Testy 250 zł
-- Kontakt: kontakt@kasiadudek.pl, +48 733 111 874
-
-ZASADY:
-1. NIE odpowiadaj na pytania o:
-   - Rabaty, promocje, negocjacje cen
-   - Szczegółowe terminy, rezerwacje
-   - Kwestie biznesowe (targi, współpraca B2B)
-
-2. W tych przypadkach ZAWSZE przekieruj do Kasi:
-   "To pytanie najlepiej omówić bezpośrednio z Kasią: kontakt@kasiadudek.pl lub +48 733 111 874"
-
-3. Jeśli pytanie dotyczy czegoś poza doradz twem zawodowym (np. "czy naprawiasz samochody?"):
-   Wyjaśnij że to strona doradcy zawodowego, nie [co user myśli]
-
-4. Bądź empatyczny - ludzie często mają problemy zawodowe i potrzebują wsparcia`,
-                    messages: [{
-                        role: 'user',
-                        content: userMessage
-                    }]
+                    message: userMessage
                 })
             });
 
@@ -1362,7 +1320,13 @@ ZASADY:
             }
 
             const data = await response.json();
-            return data.content[0].text;
+
+            // Check if we got a valid response
+            if (data.success && data.response) {
+                return data.response;
+            }
+
+            return null;
 
         } catch (error) {
             console.error('AI fallback error:', error);
