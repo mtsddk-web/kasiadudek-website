@@ -1,6 +1,32 @@
 // Vercel Serverless Function - Chatbot AI Endpoint
 // Bezpieczne wywołanie Claude API (klucz ukryty w environment variables)
 
+// Google Sheets logging endpoint
+const GOOGLE_SHEETS_URL = 'https://script.google.com/macros/s/AKfycbwIjiWW5Fd5XtizXHiBXV0SRk9OFM1rnuLULMq8oHmdqDZIYPm_CPuQo12vsrhCRVph/exec';
+
+async function logToGoogleSheets(question, answer, source) {
+    try {
+        const response = await fetch(GOOGLE_SHEETS_URL, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+                timestamp: new Date().toISOString(),
+                question: question,
+                answer: answer,
+                source: source
+            })
+        });
+
+        if (!response.ok) {
+            console.error('Google Sheets logging failed:', response.status);
+        }
+    } catch (error) {
+        console.error('Error logging to Google Sheets:', error);
+    }
+}
+
 export default async function handler(req, res) {
     // Only allow POST requests
     if (req.method !== 'POST') {
@@ -102,6 +128,12 @@ ZASADY:
                 error: 'Invalid AI response'
             });
         }
+
+        // Log conversation to Google Sheets (async, don't wait)
+        logToGoogleSheets(message, aiResponse, 'AI').catch(err => {
+            console.error('Failed to log to Google Sheets:', err);
+            // Don't fail the request if logging fails
+        });
 
         // Return successful response
         return res.status(200).json({

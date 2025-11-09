@@ -1279,6 +1279,26 @@ function initWidgets() {
         chatMessages.scrollTop = chatMessages.scrollHeight;
     }
 
+    // Log conversation to analytics
+    async function logChat(question, answer, source) {
+        try {
+            await fetch('/api/log-chat', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({
+                    question: question,
+                    answer: answer,
+                    source: source
+                })
+            });
+        } catch (error) {
+            // Silent fail - don't interrupt user experience
+            console.error('Failed to log chat:', error);
+        }
+    }
+
     async function getBotResponse(userMessage) {
         const lowerMessage = userMessage.toLowerCase();
 
@@ -1287,6 +1307,8 @@ function initWidgets() {
             if (key === 'default') continue;
 
             if (data.keywords.some(keyword => lowerMessage.includes(keyword))) {
+                // Log knowledge base response
+                logChat(userMessage, data.response, 'knowledge_base');
                 return data.response;
             }
         }
@@ -1294,11 +1316,14 @@ function initWidgets() {
         // If not in knowledge base, try AI fallback
         const aiResponse = await getAIResponse(userMessage);
         if (aiResponse) {
+            // AI responses are logged in the API endpoint
             return aiResponse;
         }
 
         // Final fallback
-        return chatbotKnowledge.default.response;
+        const defaultResponse = chatbotKnowledge.default.response;
+        logChat(userMessage, defaultResponse, 'default');
+        return defaultResponse;
     }
 
     async function getAIResponse(userMessage) {
