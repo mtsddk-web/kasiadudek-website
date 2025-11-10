@@ -148,15 +148,29 @@ if (ebookForm) {
         submitButton.disabled = true;
 
         try {
-            // Simulate API call (replace with actual endpoint)
-            await new Promise(resolve => setTimeout(resolve, 1500));
+            // Send to backend API
+            const response = await fetch('/api/ebook', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(data)
+            });
 
-            // Success
-            showNotification('Dziękuję! E-book został wysłany na Twój adres email.', 'success');
-            ebookForm.reset();
+            const result = await response.json();
+
+            if (result.success) {
+                // Success
+                showNotification(result.message || 'Dziękuję! E-book został wysłany na Twój adres email.', 'success');
+                ebookForm.reset();
+            } else {
+                // Error from API
+                showNotification(result.error || 'Wystąpił błąd. Spróbuj ponownie później.', 'error');
+            }
 
         } catch (error) {
-            // Error
+            // Network error
+            console.error('Ebook form error:', error);
             showNotification('Wystąpił błąd. Spróbuj ponownie później.', 'error');
         } finally {
             // Restore button state
@@ -182,16 +196,30 @@ if (contactForm) {
         submitButton.disabled = true;
 
         try {
-            // Simulate API call (replace with actual endpoint)
-            await new Promise(resolve => setTimeout(resolve, 1500));
+            // Send to backend API
+            const response = await fetch('/api/contact', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(data)
+            });
 
-            // Success
-            showNotification('Dziękuję za wiadomość! Odpowiem tak szybko, jak to możliwe.', 'success');
-            contactForm.reset();
+            const result = await response.json();
+
+            if (result.success) {
+                // Success
+                showNotification(result.message || 'Dziękuję za wiadomość! Odpowiem tak szybko, jak to możliwe.', 'success');
+                contactForm.reset();
+            } else {
+                // Error from API
+                showNotification(result.error || 'Wystąpił błąd. Spróbuj ponownie lub skontaktuj się bezpośrednio przez email.', 'error');
+            }
 
         } catch (error) {
-            // Error
-            showNotification('Wystąpił błąd. Spróbuj ponownie lub skontaktuj się bezpośrednio przez email.', 'error');
+            // Network error
+            console.error('Contact form error:', error);
+            showNotification('Wystąpił błąd. Spróbuj ponownie lub skontaktuj się bezpośrednio przez email: kontakt@kasiadudek.pl', 'error');
         } finally {
             // Restore button state
             submitButton.textContent = originalText;

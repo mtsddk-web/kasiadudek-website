@@ -3,8 +3,58 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Profesjonalne doradztwo zawodowe - pomogę Ci odkryć swoją ścieżkę kariery, przygotować CV i znaleźć wymarzoną pracę">
-    <title>Katarzyna Dudek - Doradca Zawodowy</title>
+
+    <!-- Basic SEO -->
+    <title>Katarzyna Dudek - Doradca Zawodowy | Zmiana Kariery, CV, Konsultacje</title>
+    <meta name="description" content="Profesjonalne doradztwo zawodowe - pomogę Ci odkryć swoją ścieżkę kariery, przygotować CV i znaleźć wymarzoną pracę. Konsultacje online i stacjonarne w Mikołowie.">
+    <meta name="keywords" content="doradca zawodowy, zmiana kariery, przygotowanie CV, konsultacje zawodowe, coaching kariery, testy predyspozycji, rozmowa kwalifikacyjna">
+    <meta name="author" content="Katarzyna Dudek">
+    <link rel="canonical" href="https://kasiadudek.pl">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://kasiadudek.pl">
+    <meta property="og:title" content="Katarzyna Dudek - Doradca Zawodowy | Zmiana Kariery, CV, Konsultacje">
+    <meta property="og:description" content="Profesjonalne doradztwo zawodowe - pomogę Ci odkryć swoją ścieżkę kariery, przygotować CV i znaleźć wymarzoną pracę.">
+    <meta property="og:image" content="https://kasiadudek.pl/images/kasia-profile.jpg">
+    <meta property="og:locale" content="pl_PL">
+    <meta property="og:site_name" content="Katarzyna Dudek - Doradca Zawodowy">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://kasiadudek.pl">
+    <meta property="twitter:title" content="Katarzyna Dudek - Doradca Zawodowy | Zmiana Kariery, CV, Konsultacje">
+    <meta property="twitter:description" content="Profesjonalne doradztwo zawodowe - pomogę Ci odkryć swoją ścieżkę kariery, przygotować CV i znaleźć wymarzoną pracę.">
+    <meta property="twitter:image" content="https://kasiadudek.pl/images/kasia-profile.jpg">
+
+    <!-- Schema.org structured data -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "ProfessionalService",
+      "name": "Katarzyna Dudek - Doradca Zawodowy",
+      "image": "https://kasiadudek.pl/images/kasia-profile.jpg",
+      "description": "Profesjonalne doradztwo zawodowe - pomogę Ci odkryć swoją ścieżkę kariery, przygotować CV i znaleźć wymarzoną pracę.",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Mikołów",
+        "addressCountry": "PL"
+      },
+      "telephone": "+48518618058",
+      "email": "kontakt@kasiadudek.pl",
+      "url": "https://kasiadudek.pl",
+      "priceRange": "150-450 PLN",
+      "openingHoursSpecification": [
+        {
+          "@type": "OpeningHoursSpecification",
+          "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+          "opens": "09:00",
+          "closes": "18:00"
+        }
+      ],
+      "sameAs": []
+    }
+    </script>
 
     <!-- Favicon -->
     <link rel="icon" type="image/x-icon" href="/favicon.ico">
@@ -29,7 +79,7 @@
             <div class="nav__menu" id="nav-menu">
                 <ul class="nav__list">
                     <li class="nav__item"><a href="#offer" class="nav__link active-link">Oferta</a></li>
-                    <li class="nav__item"><a href="#blog" class="nav__link">Blog</a></li>
+                    <!-- <li class="nav__item"><a href="#blog" class="nav__link">Blog</a></li> -->
                     <li class="nav__item"><a href="#pricing" class="nav__link">Cennik</a></li>
                     <li class="nav__item"><a href="#about" class="nav__link">O mnie</a></li>
                     <li class="nav__item"><a href="#contact" class="nav__link nav__cta">Kontakt</a></li>
@@ -95,7 +145,7 @@
             <div class="about__container">
                 <div class="about__image">
                     <div class="about__image-wrapper">
-                        <img src="images/kasia-profile.jpg" alt="Katarzyna Dudek - Doradca Zawodowy" class="about__photo">
+                        <img src="images/kasia-profile.jpg" alt="Katarzyna Dudek - Doradca Zawodowy" class="about__photo" loading="lazy">
                     </div>
                 </div>
 
@@ -267,7 +317,7 @@
         </div>
     </section>
 
-    <!-- Blog Section -->
+    <!--     <!-- Blog Section -->
     <section class="blog section" id="blog">
         <div class="container">
             <div class="section__header">
@@ -334,7 +384,7 @@
                 </article>
             </div>
         </div>
-    </section>
+    </section> -->
 
     <!-- Testimonials Section -->
     <section class="testimonials section section--dark" id="testimonials">
@@ -651,14 +701,14 @@
                     <form class="form" id="ebook-form">
                         <h3 class="form__title">Zapisz się i pobierz e-book</h3>
                         <div class="form__group">
-                            <input type="text" class="form__input" placeholder="Imię" required>
+                            <input type="text" name="name" class="form__input" placeholder="Imię" required>
                         </div>
                         <div class="form__group">
-                            <input type="email" class="form__input" placeholder="Adres e-mail" required>
+                            <input type="email" name="email" class="form__input" placeholder="Adres e-mail" required>
                         </div>
                         <div class="form__checkbox">
-                            <input type="checkbox" id="consent" required>
-                            <label for="consent">Akceptuję politykę prywatności i wyrażam zgodę na przetwarzanie danych</label>
+                            <input type="checkbox" id="consent" name="consent" required>
+                            <label for="consent">Akceptuję <a href="/polityka-prywatnosci.html" target="_blank">politykę prywatności</a> i wyrażam zgodę na przetwarzanie danych</label>
                         </div>
                         <button type="submit" class="button button--primary button--full">
                             Pobierz darmowy e-book
@@ -810,12 +860,12 @@
                     <div class="contact__info-item">
                         <div class="contact__info-icon">
                             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
+                                <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
                             </svg>
                         </div>
                         <div class="contact__info-content">
                             <h3>Telefon</h3>
-                            <a href="tel:+48733111874">+48 733 111 874</a>
+                            <a href="tel:+48518618058">+48 518 618 058</a>
                         </div>
                     </div>
 
@@ -832,6 +882,7 @@
                         </div>
                     </div>
 
+                    <!-- Social media - hidden until real profiles are available
                     <div class="contact__social">
                         <h3>Znajdź mnie również na:</h3>
                         <div class="social__links">
@@ -852,27 +903,28 @@
                             </a>
                         </div>
                     </div>
+                    -->
                 </div>
 
                 <form class="contact__form" id="contact-form">
                     <div class="form__group">
                         <label for="name" class="form__label">Imię i nazwisko</label>
-                        <input type="text" id="name" class="form__input" required>
+                        <input type="text" id="name" name="name" class="form__input" required>
                     </div>
 
                     <div class="form__group">
                         <label for="email" class="form__label">Adres e-mail</label>
-                        <input type="email" id="email" class="form__input" required>
+                        <input type="email" id="email" name="email" class="form__input" required>
                     </div>
 
                     <div class="form__group">
                         <label for="phone" class="form__label">Telefon (opcjonalnie)</label>
-                        <input type="tel" id="phone" class="form__input">
+                        <input type="tel" id="phone" name="phone" class="form__input">
                     </div>
 
                     <div class="form__group">
                         <label for="service" class="form__label">Interesująca usługa</label>
-                        <select id="service" class="form__input">
+                        <select id="service" name="service" class="form__input">
                             <option value="">Wybierz usługę</option>
                             <option value="konsultacja">Konsultacja 1-1</option>
                             <option value="cv">Budowanie CV</option>
@@ -884,12 +936,12 @@
 
                     <div class="form__group">
                         <label for="message" class="form__label">Wiadomość</label>
-                        <textarea id="message" class="form__input form__textarea" rows="5" required></textarea>
+                        <textarea id="message" name="message" class="form__input form__textarea" rows="5" required></textarea>
                     </div>
 
                     <div class="form__checkbox">
-                        <input type="checkbox" id="contact-consent" required>
-                        <label for="contact-consent">Wyrażam zgodę na przetwarzanie moich danych osobowych</label>
+                        <input type="checkbox" id="contact-consent" name="consent" required>
+                        <label for="contact-consent">Wyrażam zgodę na przetwarzanie moich danych osobowych zgodnie z <a href="/polityka-prywatnosci.html" target="_blank">polityką prywatności</a></label>
                     </div>
 
                     <button type="submit" class="button button--primary button--full">
@@ -918,7 +970,7 @@
                             <li><a href="#home">Start</a></li>
                             <li><a href="#about">O mnie</a></li>
                             <li><a href="#offer">Oferta</a></li>
-                            <li><a href="#blog">Blog</a></li>
+                            <!-- <li><a href="#blog">Blog</a></li> -->
                             <li><a href="#contact">Kontakt</a></li>
                         </ul>
                     </div>
@@ -937,7 +989,7 @@
                         <h4 class="footer__title">Kontakt</h4>
                         <ul class="footer__list">
                             <li><a href="mailto:kontakt@kasiadudek.pl">kontakt@kasiadudek.pl</a></li>
-                            <li><a href="tel:+48733111874">+48 733 111 874</a></li>
+                            <li><a href="tel:+48518618058">+48 518 618 058</a></li>
                             <li>Pon-Pt: 9:00 - 18:00</li>
                         </ul>
                     </div>
@@ -945,11 +997,11 @@
 
                 <div class="footer__bottom">
                     <p class="footer__copy">
-                        &copy; 2024 Katarzyna Dudek - Doradca Zawodowy. Wszystkie prawa zastrzeżone.
+                        &copy; 2025 Katarzyna Dudek - Doradca Zawodowy. Wszystkie prawa zastrzeżone.
                     </p>
                     <div class="footer__legal">
-                        <a href="#">Polityka prywatności</a>
-                        <a href="#">Regulamin</a>
+                        <a href="/polityka-prywatnosci.html" target="_blank">Polityka prywatności</a>
+                        <a href="/regulamin.html" target="_blank">Regulamin</a>
                     </div>
                 </div>
             </div>
