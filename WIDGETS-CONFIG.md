@@ -10,61 +10,80 @@
 ## 📞 Widget "Oddzwonię do Ciebie"
 
 ### Jak to działa?
-Widget zbiera dane kontaktowe (imię, telefon, preferowana pora) i wysyła email na **kontakt@kasiadudek.pl**.
+Widget zbiera dane kontaktowe (imię, telefon, preferowana pora) i wysyła **SMS na numer 518618058** przez SMSAPI.pl.
 
-### Konfiguracja (Web3Forms)
+### Konfiguracja (SMSAPI.pl)
 
-#### Krok 1: Załóż darmowe konto
-1. Wejdź na: https://web3forms.com
-2. Kliknij **"Get Started Free"**
-3. Zarejestruj się emailem (kontakt@kasiadudek.pl)
-4. Potwierdź email
+#### Krok 1: Weryfikacja konta SMSAPI
+1. Zaloguj się do panelu: https://ssl.smsapi.pl
+2. Przejdź do **Ustawienia** → **Dane firmy**
+3. Wypełnij wszystkie pola:
+   - **NIP** (numer identyfikacji podatkowej)
+   - **Nazwa firmy**
+   - **Adres** (ulica, numer)
+   - **Kod pocztowy**
+   - **Miasto**
+   - **Kraj**
+4. Zapisz i czekaj na weryfikację (do 24h)
 
-#### Krok 2: Uzyskaj Access Key
-1. Po zalogowaniu kliknij **"Create New Form"**
-2. Nazwij formularz: "Callback Widget - kasiadudek.pl"
-3. Skopiuj **Access Key** (np. `abc123-def456-ghi789`)
+⚠️ **WAŻNE:** Bez weryfikacji danych firmowych, możesz wysyłać SMS tylko na numer podany przy rejestracji!
 
-#### Krok 3: Wklej klucz do kodu
-1. Otwórz plik: `script.js`
-2. Znajdź linię (~1294):
-   ```javascript
-   access_key: "YOUR_WEB3FORMS_KEY",
-   ```
-3. Zamień na:
-   ```javascript
-   access_key: "TWOJ_KLUCZ_Z_WEB3FORMS",
-   ```
-4. Zapisz plik
+#### Krok 2: Doładowanie konta
+1. Po weryfikacji, przejdź do **Płatności**
+2. Doładuj konto min. 10 zł (wystarczy na ~50 SMS)
+3. Koszt SMS: ~0.20 zł/SMS
 
-#### Krok 4: Deploy
+#### Krok 3: Uzyskaj token API
+1. Panel SMSAPI → **API** → **Tokeny**
+2. Kliknij **"Utwórz nowy token"**
+3. Skopiuj token (np. `8MsTjAZgBDSo8BEaNlNFKgq0cPaFa0s4zV3QF2Cy`)
+
+#### Krok 4: Dodaj token do Vercel
+1. Dashboard Vercel: https://vercel.com/dashboard
+2. Wybierz projekt **strona-kasi**
+3. **Settings** → **Environment Variables**
+4. Dodaj nową zmienną:
+   - **Key:** `SMSAPI_TOKEN`
+   - **Value:** `TWOJ_TOKEN_Z_SMSAPI`
+   - **Environment:** Production, Preview, Development
+5. Zapisz
+
+#### Krok 5: Redeploy
 ```bash
-git add script.js
-git commit -m "Add Web3Forms access key for callback widget"
-git push
+# Token jest już w kodzie, wystarczy redeploy
+vercel --prod
 ```
 
-#### Przykład emaila, który dostaniesz:
+#### Przykład SMS, który dostaniesz:
 ```
-Od: Strona kasiadudek.pl
-Temat: 🔔 Nowa prośba o oddzwonienie - kasiadudek.pl
-
-Nowa prośba o oddzwonienie od Jan Kowalski.
-
-Telefon: 123456789
-Preferowana pora: morning
+🔔 Callback: Jan Kowalski
+Tel: 123456789
+Pora: Rano (9:00-12:00)
+kasiadudek.pl
 ```
 
-### Limity (plan darmowy):
-- ✅ 250 submisji/miesiąc
-- ✅ Spam protection
-- ✅ Email notifications
-- ✅ File uploads (jeśli potrzeba)
+### Koszty SMSAPI:
+- 💰 **~0.20 zł/SMS** (pakiet ekonomiczny)
+- 📊 **10 zł** = ~50 callback requestów
+- 📊 **50 zł** = ~250 callback requestów
 
-### Alternatywy (jeśli wolisz inne rozwiązanie):
-- **EmailJS** - https://emailjs.com (200 emaili/miesiąc)
-- **Formspree** - https://formspree.io (50 submisji/miesiąc)
-- **Webhook do n8n** - użyj swojego workflow n8n (nieograniczone)
+### Status weryfikacji konta:
+Sprawdź w panelu SMSAPI:
+- ✅ **Konto zweryfikowane** - możesz wysyłać SMS na dowolne numery
+- ⏳ **Oczekuje weryfikacji** - wypełnij dane firmowe
+- ⚠️ **Tryb testowy** - tylko na numer zarejestrowany
+
+### Troubleshooting:
+
+**Problem:** SMS nie dochodzą
+1. Sprawdź status konta w SMSAPI (czy zweryfikowane?)
+2. Sprawdź saldo (czy masz środki na koncie?)
+3. Sprawdź token API (czy poprawnie wklejony w Vercel?)
+4. Sprawdź logi w Vercel: Dashboard → Deployments → Logs
+
+**Problem:** "Test mode - send to registered number only"
+- **Przyczyna:** Konto niezweryfikowane
+- **Rozwiązanie:** Wypełnij dane firmowe w panelu SMSAPI
 
 ---
 
@@ -214,7 +233,9 @@ Model: **Claude 3 Haiku** (najtańszy, wystarczający)
    - Telefon: 123456789
    - Pora: Rano
 4. Wyślij
-5. **Sprawdź:** Czy przyszedł email na kontakt@kasiadudek.pl?
+5. **Sprawdź:** Czy przyszedł SMS na 518618058?
+
+⚠️ **Wymaga:** Zweryfikowane konto SMSAPI + saldo na koncie
 
 ### Test 2: Chatbot - Baza wiedzy
 Spróbuj pytań z bazy:
