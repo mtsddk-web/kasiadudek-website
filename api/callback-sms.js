@@ -47,14 +47,12 @@ export default async function handler(req, res) {
         const smsResponse = await fetch('https://api.smsapi.pl/sms.do', {
             method: 'POST',
             headers: {
-                'Authorization': `Bearer ${smsApiToken}`,
-                'Content-Type': 'application/json'
+                'Authorization': `Bearer ${smsApiToken}`
             },
-            body: JSON.stringify({
+            body: new URLSearchParams({
                 to: '518618058', // Numer Kasi
                 message: smsMessage,
-                format: 'json',
-                from: 'Kasia' // Nazwa nadawcy (max 11 znaków)
+                format: 'json'
             })
         });
 
